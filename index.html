@@ -1,0 +1,2590 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YK코퍼레이션 | 스마트 제조를 이끄는 글로벌 SMT 토탈 솔루션 파트너</title>
+    <meta
+      name="description"
+      content="1991년부터 SMT 실장 분야에서 쌓아온 경험과 YAMAHA 공식 파트너십으로 마운터·프린터·3D AOI·하이브리드 마운터·SMD 스토리지·무인화 SW까지 SMT 라인 전체를 제안합니다."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <style>
+      :root {
+        --navy: #0f284e;
+        --navy-2: #16386b;
+        --brand: #0b5c8a;
+        --brand-l: #1287c4;
+        --emerald: #0e9f6e;
+        --emerald-l: #2ed3a0;
+        --ink: #0e1726;
+        --ink-2: #46536a;
+        --ink-3: #7a879b;
+        --line: #e3e8ef;
+        --panel: #f5f8fb;
+        --white: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--white);
+        color: var(--ink);
+        font-family:
+          'Pretendard',
+          'Apple SD Gothic Neo',
+          'Malgun Gothic',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.72;
+        letter-spacing: -0.01em;
+        word-break: keep-all;
+        -webkit-font-smoothing: antialiased;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
+      a {
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      section {
+        scroll-margin-top: 104px;
+      }
+
+      /* ============ GNB ============ */
+      .gnb {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 150;
+        background: rgba(255, 255, 255, 0.96);
+        -webkit-backdrop-filter: saturate(180%) blur(16px);
+        backdrop-filter: saturate(180%) blur(16px);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 2px 14px rgba(15, 40, 78, 0.05);
+      }
+      .gnb-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        flex: none;
+      }
+      .logo-img {
+        height: 82px;
+        width: auto;
+        max-width: 290px;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.2s ease;
+      }
+      .logo:hover .logo-img {
+        transform: scale(1.02);
+      }
+
+      .gnb-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: auto;
+      }
+      .gnb-nav a {
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--ink-2);
+        padding: 9px 14px;
+        border-radius: 8px;
+        transition:
+          color 0.18s ease,
+          background 0.18s ease;
+      }
+      .gnb-nav a:hover {
+        color: var(--brand);
+        background: #f2f7fb;
+      }
+
+      .gnb-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: none;
+      }
+      .btn-quote {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--brand);
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 11px 20px;
+        border-radius: 9px;
+        transition: background 0.18s ease;
+      }
+      .btn-quote:hover {
+        background: var(--navy);
+      }
+      .menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 10px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+        cursor: pointer;
+        transition:
+          border-color 0.18s ease,
+          color 0.18s ease;
+      }
+      .menu-btn:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .menu-bars {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 3.5px;
+      }
+      .menu-bars i {
+        display: block;
+        width: 15px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+      }
+
+      /* ============ 전체메뉴 오버레이 ============ */
+      .allmenu {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-14px);
+        transition:
+          opacity 0.32s ease,
+          transform 0.32s ease,
+          visibility 0.32s ease;
+        overflow-y: auto;
+      }
+      .allmenu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+      .allmenu-bar {
+        position: sticky;
+        top: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        z-index: 2;
+      }
+      .allmenu-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .menu-close {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: #fff;
+        border: 0;
+        border-radius: 9px;
+        padding: 11px 18px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .menu-close:hover {
+        background: var(--brand);
+      }
+      .menu-close svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .allmenu-body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px 24px 72px;
+      }
+      .allmenu-title {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: var(--ink-3);
+        margin: 0 0 8px;
+      }
+      .allmenu-h {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        color: var(--navy);
+        margin: 0 0 48px;
+      }
+      .allmenu-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 36px 32px;
+      }
+      .am-col h3 {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: var(--brand);
+        margin: 0 0 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--navy);
+      }
+      .am-col a {
+        display: block;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ink-2);
+        padding: 10px 0;
+        border-bottom: 1px solid #f1f4f8;
+        transition:
+          color 0.16s ease,
+          padding-left 0.16s ease;
+      }
+      .am-col a:last-child {
+        border-bottom: 0;
+      }
+      .am-col a:hover {
+        color: var(--brand);
+        padding-left: 6px;
+      }
+      .am-col a span {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-3);
+        margin-top: 2px;
+      }
+      .allmenu-foot {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 26px 24px 40px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 40px;
+        align-items: center;
+        font-size: 13.5px;
+        color: var(--ink-3);
+      }
+      .allmenu-foot strong {
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .allmenu-foot a {
+        text-decoration: none;
+        color: var(--brand);
+        font-weight: 700;
+      }
+
+      /* ============ HERO ============ */
+      .hero {
+        position: relative;
+        margin-top: 100px;
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: var(--navy);
+        color: #fff;
+      }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center right;
+        display: block;
+      }
+      .hero-shade {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(9, 22, 43, 0.92) 0%, rgba(9, 22, 43, 0.78) 42%, rgba(9, 22, 43, 0.25) 75%, rgba(9, 22, 43, 0.1) 100%),
+          radial-gradient(ellipse at 85% 50%, rgba(18, 135, 196, 0.18) 0%, rgba(9, 22, 43, 0) 65%);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 68px 0 64px;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12.5px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: #8fd3f4;
+        margin: 0 0 22px;
+      }
+      .hero-eyebrow::before {
+        content: '';
+        width: 26px;
+        height: 2px;
+        background: var(--emerald-l);
+        display: block;
+      }
+      .hero h1 {
+        font-size: clamp(30px, 4.2vw, 52px);
+        line-height: 1.3;
+        letter-spacing: -0.035em;
+        font-weight: 800;
+        margin: 0 0 24px;
+        max-width: 900px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--emerald-l);
+      }
+      .hero-sub {
+        font-size: 16.5px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 620px;
+        margin: 0 0 36px;
+      }
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 15px 28px;
+        border-radius: 10px;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .btn-primary {
+        background: var(--emerald);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: #0b8a5f;
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: #fff;
+      }
+      .btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .video-toggle {
+        position: absolute;
+        left: 24px;
+        bottom: 26px;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        color: #fff;
+        border-radius: 999px;
+        padding: 9px 18px;
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      .video-toggle:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .video-toggle svg {
+        width: 14px;
+        height: 14px;
+      }
+      .video-note {
+        position: absolute;
+        right: 24px;
+        bottom: 26px;
+        z-index: 3;
+        max-width: min(420px, 60%);
+        background: rgba(6, 18, 36, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-size: 11.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.78);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      .video-note b {
+        color: #8fd3f4;
+        font-weight: 700;
+      }
+      .video-note code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        color: #fff;
+      }
+
+      /* ============ 공통 섹션 ============ */
+      .section {
+        padding: 110px 0;
+      }
+      .section.panel {
+        background: var(--panel);
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 12.5px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: var(--brand);
+        margin: 0 0 16px;
+      }
+      .section h2 {
+        font-size: clamp(26px, 3.1vw, 38px);
+        line-height: 1.34;
+        letter-spacing: -0.035em;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 18px;
+      }
+      .lead {
+        font-size: 16.5px;
+        line-height: 1.78;
+        color: var(--ink-2);
+        margin: 0;
+        max-width: 660px;
+      }
+      .section-head {
+        margin-bottom: 56px;
+      }
+      .section-head.center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 760px;
+      }
+      .section-head.center .lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ============ 숫자 하이라이트 ============ */
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .hl {
+        background: #fff;
+        padding: 44px 32px;
+      }
+      .hl .num {
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: -0.045em;
+        line-height: 1;
+        color: var(--brand);
+        margin: 0 0 12px;
+        font-variant-numeric: tabular-nums;
+      }
+      .hl .num small {
+        font-size: 19px;
+        font-weight: 800;
+        margin-left: 3px;
+        color: var(--navy);
+      }
+      .hl h3 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 8px;
+        letter-spacing: -0.02em;
+      }
+      .hl p {
+        font-size: 14px;
+        color: var(--ink-3);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* ============ 제품 ============ */
+      .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 40px;
+      }
+      .filter-btn {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink-2);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 20px;
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+      .filter-btn:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+      .filter-btn.active {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: #fff;
+      }
+
+      .p-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .p-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease,
+          border-color 0.22s ease;
+      }
+      .p-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 22px 44px -26px rgba(15, 40, 78, 0.45);
+        border-color: #c6d9e8;
+      }
+      .p-img-box {
+        position: relative;
+        width: 100%;
+        height: 230px;
+        background: #f8fafc;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .p-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #ffffff;
+        padding: 8px;
+        transition: transform 0.3s ease;
+        display: block;
+      }
+      .p-card:hover .p-img-box img {
+        transform: scale(1.04);
+      }
+      /* 이미지가 없을 때만 placeholder 표시 */
+      .p-img-box img + .p-img-placeholder {
+        display: none !important;
+      }
+      .p-img-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--ink-3);
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #f0f5fa 0%, #e5eef7 100%);
+      }
+      .p-img-placeholder svg {
+        width: 44px;
+        height: 44px;
+        color: var(--brand);
+        opacity: 0.6;
+      }
+      .p-img-placeholder span {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-2);
+      }
+      .p-badge-pos {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(15, 40, 78, 0.85);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 6px;
+      }
+      .p-body {
+        padding: 24px 24px 26px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .p-cat {
+        font-size: 11.5px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--brand);
+        margin: 0 0 6px;
+      }
+      .p-card h3 {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        color: var(--navy);
+        margin: 0 0 10px;
+      }
+      .p-desc {
+        font-size: 14px;
+        line-height: 1.68;
+        color: var(--ink-2);
+        margin: 0 0 16px;
+      }
+      
+      /* 접이식 스펙 토글 (아코디언) */
+      .spec-accordion {
+        margin: 0 0 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: #f8fafc;
+        overflow: hidden;
+      }
+      .spec-trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        background: transparent;
+        border: 0;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--navy);
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.18s ease;
+      }
+      .spec-trigger:hover {
+        background: #edf5fa;
+        color: var(--brand);
+      }
+      .spec-trigger svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.22s ease;
+      }
+      .spec-accordion.open .spec-trigger svg {
+        transform: rotate(180deg);
+      }
+      .spec-accordion.open .spec-trigger {
+        border-bottom: 1px solid #e2e8f0;
+        background: #edf5fa;
+      }
+      .spec-panel {
+        display: none;
+        padding: 14px 16px;
+        background: #ffffff;
+      }
+      .spec-accordion.open .spec-panel {
+        display: block;
+      }
+      .spec-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12.5px;
+      }
+      .spec-table tr {
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .spec-table tr:last-child {
+        border-bottom: 0;
+      }
+      .spec-table th {
+        width: 38%;
+        padding: 6px 0;
+        text-align: left;
+        font-weight: 700;
+        color: var(--navy);
+        vertical-align: top;
+      }
+      .spec-table td {
+        padding: 6px 0;
+        color: var(--ink-2);
+        line-height: 1.5;
+        vertical-align: top;
+      }
+      .btn-spec-modal {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        padding: 9px 12px;
+        margin-top: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--brand);
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.18s ease;
+      }
+      .btn-spec-modal:hover {
+        background: var(--brand);
+        color: #fff;
+        border-color: var(--brand);
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+      }
+      .tag {
+        font-size: 12px;
+        font-weight: 700;
+        color: #0b5c8a;
+        background: #edf6fb;
+        padding: 5px 11px;
+        border-radius: 7px;
+        letter-spacing: -0.01em;
+      }
+      .tag.em {
+        background: #e7f7f1;
+        color: #0b7a55;
+      }
+
+      /* ============ 솔루션 ============ */
+      .sol-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+      .sol-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 36px 30px;
+        background: #fff;
+      }
+      .sol-card .idx {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: var(--navy);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 22px;
+      }
+      .sol-card h3 {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 10px;
+        letter-spacing: -0.025em;
+      }
+      .sol-card p {
+        font-size: 14.5px;
+        color: var(--ink-2);
+        margin: 0;
+      }
+      .flow {
+        border: 1px dashed #c6d9e8;
+        border-radius: 18px;
+        background: #fff;
+        padding: 34px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 14px;
+      }
+      .flow-label {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--ink-3);
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .flow-step {
+        padding: 13px 22px;
+        border-radius: 10px;
+        background: #f3f8fc;
+        border: 1px solid #dceaf4;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .flow-step.on {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .flow-arrow {
+        color: #b4c8da;
+        display: flex;
+        align-items: center;
+      }
+      .flow-arrow svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* ============ 회사소개 ============ */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 64px;
+        align-items: start;
+      }
+      .about-grid p {
+        font-size: 16px;
+        line-height: 1.85;
+        color: var(--ink-2);
+        margin: 0 0 18px;
+      }
+      .about-grid p strong {
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .timeline {
+        border-left: 2px solid #dce7f1;
+        padding-left: 28px;
+        margin: 0;
+        list-style: none;
+      }
+      .timeline li {
+        position: relative;
+        padding-bottom: 30px;
+      }
+      .timeline li:last-child {
+        padding-bottom: 0;
+      }
+      .timeline li::before {
+        content: '';
+        position: absolute;
+        left: -35px;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid var(--brand);
+      }
+      .timeline .yr {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        color: var(--brand);
+        margin-bottom: 4px;
+      }
+      .timeline .tx {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0;
+      }
+      .timeline .sb {
+        font-size: 13.5px;
+        color: var(--ink-3);
+        margin: 4px 0 0;
+        line-height: 1.6;
+      }
+
+      /* ============ 기술지원 ============ */
+      .sup-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .sup-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 34px 30px;
+        background: #fff;
+        transition:
+          border-color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .sup-card:hover {
+        border-color: #c6d9e8;
+        transform: translateY(-4px);
+      }
+      .sup-card h3 {
+        font-size: 17.5px;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 10px;
+        letter-spacing: -0.025em;
+      }
+      .sup-card p {
+        font-size: 14.5px;
+        color: var(--ink-2);
+        margin: 0 0 16px;
+      }
+      .sup-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 14px;
+        color: var(--ink-2);
+        line-height: 1.8;
+      }
+      .sup-card ul li {
+        margin: 0;
+      }
+
+      /* ============ 문의 ============ */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      .branch-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 22px;
+        background: #eaf1f7;
+        padding: 5px;
+        border-radius: 12px;
+      }
+      .branch-tab {
+        flex: 1;
+        padding: 10px 14px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink-2);
+        font-family: inherit;
+        font-size: 14.5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+      }
+      .branch-tab.active {
+        background: #fff;
+        color: var(--navy);
+        box-shadow: 0 2px 8px rgba(15, 40, 78, 0.08);
+      }
+      .branch-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 28px 24px;
+        box-shadow: 0 4px 16px rgba(15, 40, 78, 0.03);
+      }
+      .branch-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      .branch-header h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      .branch-badge {
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+        background: #edf6fb;
+        color: var(--brand);
+      }
+      .info-item {
+        display: flex;
+        gap: 16px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .info-item:first-of-type {
+        padding-top: 0;
+      }
+      .info-ico {
+        flex: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        background: #edf5fa;
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .info-ico svg {
+        width: 20px;
+        height: 20px;
+      }
+      .info-item dt {
+        font-size: 11.5px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        color: var(--ink-3);
+        margin: 0 0 4px;
+      }
+      .info-item dd {
+        margin: 0;
+        font-size: 15px;
+        color: var(--navy);
+        font-weight: 600;
+        line-height: 1.65;
+      }
+      .info-item dd a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .map-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        text-decoration: none;
+        background: #4285F4;
+        color: #fff;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 10px 18px;
+        border-radius: 9px;
+        transition: background 0.18s ease, transform 0.18s ease;
+      }
+      .map-link:hover {
+        background: #2b6fe4;
+        transform: translateY(-1px);
+      }
+      .map-link.naver {
+        background: #03c75a;
+      }
+      .map-link.naver:hover {
+        background: #02b350;
+      }
+      .map-btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .form-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 38px 34px;
+        background: #fff;
+      }
+      .form-card h3 {
+        font-size: 19px;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 0 0 6px;
+        letter-spacing: -0.025em;
+      }
+      .form-card .hint {
+        font-size: 13.5px;
+        color: var(--ink-3);
+        margin: 0 0 28px;
+      }
+      .f-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .f-field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .f-field.full {
+        grid-column: 1 / -1;
+      }
+      .f-field label {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink-2);
+      }
+      .f-field label span {
+        color: var(--brand);
+      }
+      .f-field input,
+      .f-field select,
+      .f-field textarea {
+        font-family: inherit;
+        font-size: 14.5px;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 12px 14px;
+        background: #fff;
+        width: 100%;
+        outline: none;
+        transition: border-color 0.16s ease;
+      }
+      .f-field input:focus,
+      .f-field select:focus,
+      .f-field textarea:focus {
+        border-color: var(--brand);
+      }
+      .f-field textarea {
+        resize: vertical;
+        min-height: 110px;
+        line-height: 1.65;
+      }
+      .agree {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--ink-3);
+        margin: 6px 0 22px;
+      }
+      .agree input {
+        margin-top: 3px;
+      }
+      .form-submit {
+        width: 100%;
+        font-family: inherit;
+        font-size: 15.5px;
+        font-weight: 800;
+        color: #fff;
+        background: var(--brand);
+        border: 0;
+        border-radius: 10px;
+        padding: 16px;
+        cursor: pointer;
+        transition: background 0.18s ease;
+      }
+      .form-submit:hover {
+        background: var(--navy);
+      }
+
+      /* ============ FOOTER ============ */
+      .footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 64px 0 34px;
+        font-size: 14px;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 44px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      .foot-brand .fk {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.03em;
+        margin: 0 0 14px;
+      }
+      .foot-brand p {
+        margin: 0 0 6px;
+        font-size: 13.5px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .foot-col h4 {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: #8fd3f4;
+        margin: 0 0 16px;
+      }
+      .foot-col a {
+        display: block;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13.5px;
+        padding: 6px 0;
+      }
+      .foot-col a:hover {
+        color: #fff;
+      }
+      .foot-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 28px;
+        justify-content: space-between;
+        padding-top: 26px;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ============ 반응형 ============ */
+      @media (max-width: 1080px) {
+        .gnb-nav {
+          display: none;
+        }
+        .allmenu-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .p-grid,
+        .sol-grid,
+        .sup-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 46px;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 760px) {
+        .container {
+          padding: 0 18px;
+        }
+        .gnb-inner {
+          padding: 0 18px;
+          height: 84px;
+          gap: 12px;
+        }
+        .allmenu-bar-inner {
+          height: 84px;
+        }
+        .btn-quote {
+          display: none;
+        }
+        .menu-btn {
+          padding: 9px 13px;
+          font-size: 13px;
+        }
+        .logo-img {
+          height: 64px;
+          max-width: 220px;
+        }
+        .hero {
+          margin-top: 84px;
+          min-height: 480px;
+        }
+        .hero-inner {
+          padding: 56px 0 60px;
+        }
+        .hero-sub {
+          font-size: 15px;
+        }
+        .btn {
+          padding: 13px 22px;
+          font-size: 14px;
+        }
+        .section {
+          padding: 72px 0;
+        }
+        .section-head {
+          margin-bottom: 38px;
+        }
+        .highlights {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hl {
+          padding: 30px 22px;
+        }
+        .hl .num {
+          font-size: 34px;
+        }
+        .p-grid,
+        .sol-grid,
+        .sup-grid {
+          grid-template-columns: 1fr;
+        }
+        .allmenu-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px 20px;
+        }
+        .allmenu-body {
+          padding: 40px 18px 48px;
+        }
+        .allmenu-h {
+          font-size: 24px;
+          margin-bottom: 32px;
+        }
+        .video-note {
+          display: none;
+        }
+        .f-row {
+          grid-template-columns: 1fr;
+        }
+        .form-card {
+          padding: 28px 22px;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+      @media (max-width: 460px) {
+        .allmenu-grid {
+          grid-template-columns: 1fr;
+        }
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= GNB ================= -->
+    <header class="gnb">
+      <div class="gnb-inner">
+        <a class="logo" href="#top" aria-label="YK코퍼레이션 홈으로 이동">
+          <img class="logo-img" src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION YK코퍼레이션 로고" />
+        </a>
+
+        <nav class="gnb-nav">
+          <a href="#about">회사소개</a>
+          <a href="#products">제품 라인업</a>
+          <a href="#solutions">스마트 솔루션</a>
+          <a href="#support">기술지원</a>
+        </nav>
+
+        <div class="gnb-actions">
+          <a class="btn-quote" href="#contact">견적 문의</a>
+          <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="allmenu">
+            <span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>전체메뉴</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= 전체메뉴 오버레이 ================= -->
+    <div class="allmenu" id="allmenu" aria-hidden="true">
+        <div class="allmenu-bar">
+          <div class="allmenu-bar-inner">
+            <a class="logo" href="#top" aria-label="YK코퍼레이션 홈으로 이동">
+              <img class="logo-img" src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION YK코퍼레이션 로고" />
+            </a>
+            <button class="menu-close" id="menuClose" aria-label="전체메뉴 닫기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+            닫기
+          </button>
+        </div>
+      </div>
+
+      <div class="allmenu-body">
+        <p class="allmenu-title">ALL MENU</p>
+        <h2 class="allmenu-h">YK코퍼레이션 전체메뉴</h2>
+
+        <div class="allmenu-grid">
+          <div class="am-col">
+            <h3>COMPANY</h3>
+            <a href="#about">회사소개</a>
+            <a href="#about">CEO 인사말</a>
+            <a href="#about">연혁</a>
+            <a href="#about">파트너십 · YAMAHA</a>
+            <a href="#contact">오시는 길</a>
+          </div>
+
+                <div class="am-col">
+                  <h3>PRODUCTS</h3>
+                  <a href="#products">표면실장용 마운터<span>YRM10 · YRM20 · YRM20DL</span></a>
+                  <a href="#products">스크린 프린터<span>YRP10 · YRP10e</span></a>
+                  <a href="#products">3D AOI 검사기<span>YRi-V / YRi-V TypeHS</span></a>
+                  <a href="#products">하이브리드 마운터<span>YRH10 · YRH10W</span></a>
+                  <a href="#products">SMD 스마트 스토리지</a>
+                  <a href="#products">무인화 관리 소프트웨어</a>
+                </div>
+
+          <div class="am-col">
+            <h3>SOLUTIONS</h3>
+            <a href="#solutions">스마트팩토리 토탈 솔루션</a>
+            <a href="#solutions">인더스트리 4.0 라인 통합</a>
+            <a href="#solutions">지능형 생산 제어</a>
+          </div>
+
+          <div class="am-col">
+            <h3>CUSTOMER SUPPORT</h3>
+            <a href="#support">기술지원</a>
+            <a href="#support">정기점검 및 A/S</a>
+            <a href="#support">다운로드 · 카탈로그</a>
+            <a href="#support">기술 교육 안내</a>
+          </div>
+
+                <div class="am-col">
+                  <h3>CONTACT US</h3>
+                  <a href="#contact">견적 및 도입 문의</a>
+                  <a href="#contact">본사 오시는 길 (용인)</a>
+                  <a href="#contact">베트남 지사 (VINA)</a>
+                  <a href="#contact">온라인 상담신청</a>
+                </div>
+        </div>
+      </div>
+
+      <div class="allmenu-foot">
+        <span><strong>대표전화</strong> 070-8271-9880</span>
+        <span><strong>이메일</strong> yk@yk-co.com</span>
+        <span><strong>주소</strong> 경기도 용인시 기흥구 동백8로 131번길 35</span>
+        <a href="#contact">도입 상담 바로가기 →</a>
+      </div>
+    </div>
+
+    <main id="top">
+      <!-- ================= HERO (동영상 영역) ================= -->
+      <section class="hero">
+        <div class="hero-media">
+          <!-- ============================================================
+           ▼▼▼  동영상 교체 위치  ▼▼▼
+           아래 <source> 주석을 풀고 src에 mp4 경로를 넣으면
+           자동재생 · 반복 · 무음으로 히어로 배경 영상이 재생됩니다.
+           (예: <source src="video/yk-hero.mp4" type="video/mp4">)
+           영상이 없을 때는 poster 이미지가 대신 표시됩니다.
+           ============================================================ -->
+          <video
+            class="hero-video"
+            id="heroVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            poster="https://sspark.genspark.ai/i/7Z4vSTm2idHfzs2U?width=1024"
+          >
+            <!-- <source src="video/yk-hero.mp4" type="video/mp4" /> -->
+          </video>
+
+          <div class="hero-shade"></div>
+        </div>
+
+        <div class="hero-inner">
+          <div class="container" style="max-width: 680px; margin-left: 0;">
+            <p class="hero-eyebrow">SINCE 1991 · YAMAHA SMT OFFICIAL PARTNER</p>
+            <h1>스마트 제조 혁신을 이끄는<br /><em>글로벌 SMT 토탈 솔루션 파트너</em></h1>
+            <p class="hero-sub">
+              마운터부터 스크린 프린터, 3D AOI 검사기, 하이브리드 마운터, SMD 스마트 스토리지까지. YK코퍼레이션은 YAMAHA의
+              고품질 SMT 설비로 라인 전체를 설계하고, 설치·유지보수까지 한 창구에서 책임집니다.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#contact">
+                도입 상담 신청
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a class="btn btn-ghost" href="#products">제품 라인업 보기</a>
+            </div>
+          </div>
+        </div>
+
+        <button class="video-toggle" id="videoToggle" aria-label="배경 영상 재생 및 일시정지">
+          <svg id="videoIcon" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="5" width="4" height="14" rx="1" />
+            <rect x="14" y="5" width="4" height="14" rx="1" />
+          </svg>
+          <span id="videoToggleText">영상 일시정지</span>
+        </button>
+
+        <div class="video-note">
+          <b>영상 교체 안내</b> — 소스의 <code>&lt;video&gt;</code> 안에 <code>&lt;source src="동영상.mp4"&gt;</code> 한
+          줄만 넣으면 바로 적용됩니다.
+        </div>
+      </section>
+
+      <!-- ================= KEY HIGHLIGHTS ================= -->
+      <section class="section" id="highlights">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">WHY YK CORPORATION</p>
+            <h2>숫자로 증명하는 SMT 파트너십</h2>
+            <p class="lead">
+              1991년부터 전자 업계 SMT 실장 분야에서 쌓아온 신뢰, 그리고 YAMAHA와 함께한 18년의 경험이 고객사의 라인을
+              지킵니다.
+            </p>
+          </div>
+
+          <div class="highlights">
+            <div class="hl">
+              <p class="num">30<small>+</small></p>
+              <h3>년의 신뢰와 기술력</h3>
+              <p>1991년 SMT 실장 사업 시작 이후 축적된 현장 대응 노하우</p>
+            </div>
+            <div class="hl">
+              <p class="num">2008</p>
+              <h3>YAMAHA 공식 파트너</h3>
+              <p>일본 YAMAHA(사)와 공식 계약 체결, 정품 설비 공급 및 기술 지원</p>
+            </div>
+            <div class="hl">
+              <p class="num">500<small>+</small></p>
+              <h3>고객사 납품 실적</h3>
+              <p>국내외 전자 제조 현장에 축적된 설치·운영 레퍼런스</p>
+            </div>
+            <div class="hl">
+              <p class="num">24<small>/7</small></p>
+              <h3>전담 기술지원</h3>
+              <p>설치·시운전·정기점검까지 전담 엔지니어가 직접 대응</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 제품 라인업 ================= -->
+      <section class="section panel" id="products">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">YAMAHA SMT FULL LINE-UP</p>
+            <h2>스마트팩토리를 위한 토탈 솔루션, 전체 라인업</h2>
+            <p class="lead">
+              표면실장용 마운터, 스크린 프린터, 3D AOI 검사기, 하이브리드 마운터, SMD 스토리지 시스템, 무인화 관리 소프트웨어.
+              라인을 구성하는 모든 설비를 한 곳에서 제안합니다.
+            </p>
+          </div>
+
+          <div class="filter-row">
+            <button class="filter-btn active" data-filter="all">전체 보기</button>
+            <button class="filter-btn" data-filter="mounter">마운터</button>
+            <button class="filter-btn" data-filter="printer">프린터</button>
+            <button class="filter-btn" data-filter="aoi">AOI 검사기</button>
+            <button class="filter-btn" data-filter="bonder">하이브리드 마운터</button>
+            <button class="filter-btn" data-filter="system">스토리지 · SW</button>
+          </div>
+
+          <div class="p-grid">
+            <!-- 1. 표면실장용 마운터 -->
+            <article class="p-card" data-cat="mounter">
+              <div class="p-img-box">
+                <span class="p-badge-pos">MOUNTER</span>
+                <img src="https://www.genspark.ai/api/files/s/xuJwGLqO?token=awYlAOMVUUj0lBMTSJl68A" alt="YAMAHA 프리미엄 마운터 YRM20" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">YAMAHA MOUNTER</p>
+                <h3>표면실장용 마운터</h3>
+                <p class="p-desc">
+                  1-Head Solution의 결정체. 초고속 로터리 RM 헤드(115,000CPH)와 인라인 다기능 헤드를 결합하여 압도적인 생산성과 다품종 대응 유연성을 제공합니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>대표 기종</th>
+                        <td>YRM20 / YRM10 / YRM20DL</td>
+                      </tr>
+                      <tr>
+                        <th>실장 능력(최적 조건)</th>
+                        <td>2-Beam RM 헤드: 115,000 CPH<br />1-Beam RM 헤드: 57,500 CPH<br />HM 인라인 헤드: 98,000 CPH</td>
+                      </tr>
+                      <tr>
+                        <th>실장 정밀도</th>
+                        <td>±0.025 mm (Cpk ≧ 1.0, 고정밀 모드)</td>
+                      </tr>
+                      <tr>
+                        <th>대응 부품 크기</th>
+                        <td>0201mm(0.25×0.125mm) ~ W55×L100mm, 높이 15mm 이하 (FM 헤드 장착 시 높이 30mm)</td>
+                      </tr>
+                      <tr>
+                        <th>대응 기판(PCB)</th>
+                        <td>1-PCB 반송: L50×W50mm ~ L810×W510mm<br />2-PCB 반송(듀얼스테이지): L50×W50mm ~ L380×W510mm</td>
+                      </tr>
+                      <tr>
+                        <th>피더 장착 수량</th>
+                        <td>카트리지 일괄교환: 최대 128품종 (8mm 테이프 기준) / 트레이 최대 60품종 (eATS30×2)</td>
+                      </tr>
+                      <tr>
+                        <th>통신 규격</th>
+                        <td>SEMI SMT-ELS 호환 대응 (Auto Program Change-Over)</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">YRM20</span>
+                  <span class="tag">YRM10</span>
+                  <span class="tag em">115,000 CPH · ±0.025mm</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. 스크린 프린터 -->
+            <article class="p-card" data-cat="printer">
+              <div class="p-img-box">
+                <span class="p-badge-pos">SCREEN PRINTER</span>
+                <img src="https://www.genspark.ai/api/files/s/g3ox6kD0?token=awYlAGWHVYwy942rbBev-w" alt="YAMAHA 프리미엄 프린터 YRP10" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">YAMAHA PRINTER</p>
+                <h3>스크린 프린터</h3>
+                <p class="p-desc">
+                  완전 자동 셋업 및 모델 교체를 실현하는 고속·고품질 인쇄기. 독자적인 3S 스윙 싱글 스퀴지 헤드와 ±16μm 인쇄 정밀도로 고밀도 실장의 품질을 보장합니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>대표 기종</th>
+                        <td>YRP10 / YRP10e</td>
+                      </tr>
+                      <tr>
+                        <th>인쇄 헤드</th>
+                        <td>3S 헤드 (Swing Single Squeegee)</td>
+                      </tr>
+                      <tr>
+                        <th>코어 사이클 타임</th>
+                        <td>6.0 초 (인쇄 시간 제외 기준 최단 사이클)</td>
+                      </tr>
+                      <tr>
+                        <th>인쇄 정밀도</th>
+                        <td>위치반복 정밀도(±6σ): ±8 μm (Cp ≧ 2.0)<br />인쇄 정밀도(μ±6σ): ±16 μm (Cpk ≧ 2.0, CeTaQ 측정치)</td>
+                      </tr>
+                      <tr>
+                        <th>대응 기판(PCB)</th>
+                        <td>싱글 레인: L50×W50mm ~ L510×W510mm (옵션 시 최대 L650×W510mm)<br />듀얼 레인: L50×W50mm ~ L420×W330mm</td>
+                      </tr>
+                      <tr>
+                        <th>대응 스텐실(마스크)</th>
+                        <td>L750×W750mm, L736×W736mm(29"), L650×W550mm, L584×W584mm(23") 등 다품종 마스크 대응</td>
+                      </tr>
+                      <tr>
+                        <th>자동화 옵션</th>
+                        <td>스텐실 자동 교체(PSC), 솔더 자동 보급(2D 검사 옵션 지원)</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">YRP10</span>
+                  <span class="tag em">YRP10e</span>
+                  <span class="tag">6.0초 사이클 · ±16μm 정밀도</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. 3D AOI 검사기 -->
+            <article class="p-card" data-cat="aoi">
+              <div class="p-img-box">
+                <span class="p-badge-pos">3D AOI &amp; SPI</span>
+                <img src="https://www.genspark.ai/api/files/s/XaGH05dT?token=awYlAOW3Q8wzvI28_yCWRg" alt="YAMAHA 3D 광학검사기 YRi-V" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">YAMAHA 3D AOI</p>
+                <h3>3D AOI 검사기</h3>
+                <p class="p-desc">
+                  초고속 56.8cm²/s 검사와 8방향 3D 프로젝터 탑재. 동축 조명과 5μm 초정밀 렌즈로 미세 0201 부품부터 경면 부품까지 사각지대 없이 완벽 검출합니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>대표 기종</th>
+                        <td>YRi-V / YRi-V TypeHS</td>
+                      </tr>
+                      <tr>
+                        <th>카메라 화소수</th>
+                        <td>12 Megapixels / 25 Megapixels (4방향 경사카메라: 20 Megapixels)</td>
+                      </tr>
+                      <tr>
+                        <th>광학 해상도</th>
+                        <td>12 μm / 7 μm / 5 μm (동축 조명 탑재)</td>
+                      </tr>
+                      <tr>
+                        <th>3D 검사 속도</th>
+                        <td>최대 56.8 cm²/s (최적 4프로젝터 조건 하)</td>
+                      </tr>
+                      <tr>
+                        <th>3D 프로젝터</th>
+                        <td>8-Way Projector / 4-Way Projector (최대 측정 높이 25mm)</td>
+                      </tr>
+                      <tr>
+                        <th>대응 기판(PCB)</th>
+                        <td>L50×W50mm ~ L610×W610mm (옵션 장척 기판: L760mm 대응)</td>
+                      </tr>
+                      <tr>
+                        <th>특장점</th>
+                        <td>마운터 데이터/CAD 자동 검사 데이터 변환 &amp; 마운터 피드백 제어</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">YRi-V</span>
+                  <span class="tag">YRi-V TypeHS</span>
+                  <span class="tag em">56.8cm²/s · 8-Way 3D</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. 하이브리드 마운터 (플립칩 본더) -->
+            <article class="p-card" data-cat="bonder">
+              <div class="p-img-box">
+                <span class="p-badge-pos">HYBRID MOUNTER</span>
+                <img src="https://www.genspark.ai/api/files/s/4PWOlC6R?token=awYlAFgLum6W9UT3hfTEag" alt="YAMAHA 하이브리드 마운터 YRH10 / YRH10W" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">HYBRID MOUNTER</p>
+                <h3>하이브리드 마운터 (Hybrid Placer)</h3>
+                <p class="p-desc">
+                  반도체 베어 다이(Bare Die) 실장과 일반 SMD 칩 실장을 단 1대에서 고속·고정밀로 처리하는 하이브리드 마운터. SiP 및 첨단 패키징 모듈 생산의 최적 솔루션입니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>대표 기종</th>
+                        <td>YRH10 / YRH10W (와이드 대응)</td>
+                      </tr>
+                      <tr>
+                        <th>실장 능력(UPH/CPH)</th>
+                        <td>웨이퍼 다이 실장: 14,000 UPH<br />SMD 칩 실장: 29,000 CPH</td>
+                      </tr>
+                      <tr>
+                        <th>실장 정밀도</th>
+                        <td>초고정밀 ±15 μm (Cpk ≧ 1.0)</td>
+                      </tr>
+                      <tr>
+                        <th>웨이퍼 대응 크기</th>
+                        <td>6인치 / 8인치 / 최대 12인치(300mm) 웨이퍼 링 공급 대응</td>
+                      </tr>
+                      <tr>
+                        <th>대응 부품 크기</th>
+                        <td>다이: L0.2×W0.2mm ~ L16×W16mm (두께 0.1~0.5mm)<br />SMD: 0201mm ~ L16×W16mm (높이 15mm 이하)</td>
+                      </tr>
+                      <tr>
+                        <th>대응 기판(PCB)</th>
+                        <td>YRH10: L50×W30mm ~ L330×W250mm<br />YRH10W: L50×W60mm ~ L510×W460mm</td>
+                      </tr>
+                      <tr>
+                        <th>피딩 수용 품종</th>
+                        <td>릴 피더 최대 64품종 + 웨이퍼 최대 10품종 동시 수용</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">YRH10</span>
+                  <span class="tag">YRH10W</span>
+                  <span class="tag em">14,000 UPH · ±15μm 하이브리드</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. SMD 스마트 스토리지 -->
+            <article class="p-card" data-cat="system">
+              <div class="p-img-box">
+                <span class="p-badge-pos">SMART STORAGE</span>
+                <img src="https://www.genspark.ai/api/files/s/JjsKNekG?token=awYlAOpNg0igVmmQ-FYkbw" alt="SMD 스마트 스토리지 머티리얼 매니지먼트 시스템" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">AUTO STORAGE</p>
+                <h3>SMD 스마트 스토리지 시스템</h3>
+                <p class="p-desc">
+                  SMT 라인의 부품 입출고 무인화 타워. 릴 단위 바코드 인식으로 셋업 준비 시간을 최소화하고, 습기 민감 부품(MSD)의 유효 잔여 시간을 정밀 제어합니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ 스마트 스토리지 상세 스펙</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>보관 용량</th>
+                        <td>단일 타워 기준 1,000 ~ 2,000 Reel 이상 (모듈식 증설 가능)</td>
+                      </tr>
+                      <tr>
+                        <th>수용 릴 사양</th>
+                        <td>7인치 / 13인치 / 15인치 테이프 릴 (두께 8mm ~ 56mm), JEDEC 트레이</td>
+                      </tr>
+                      <tr>
+                        <th>입출고 속도</th>
+                        <td>릴당 평균 4 ~ 6초대 초고속 자동 반출 및 다중 배치 출고</td>
+                      </tr>
+                      <tr>
+                        <th>MSD 환경 관리</th>
+                        <td>J-STD-033 규격 준수, 초저습 5% RH 이하 항온·항습 밀폐 제어</td>
+                      </tr>
+                      <tr>
+                        <th>스마트 연동</th>
+                        <td>YAMAHA 라인 소프트웨어, 공장 MES/ERP, AGV 무인 이송차 연계</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">자동 입출고</span>
+                  <span class="tag em">MSD 5% RH 초저습</span>
+                  <span class="tag">AGV 연동</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. 무인화 관리 소프트웨어 -->
+            <article class="p-card" data-cat="system">
+              <div class="p-img-box">
+                <span class="p-badge-pos">1 STOP SMART SOLUTION</span>
+                <img src="https://www.genspark.ai/api/files/s/FM8PQVFy?token=awYlAImEFvsz6WNkILvdRw" alt="YAMAHA 1 Stop Smart Solution 인텔리전트 팩토리 IoT 플랫폼" />
+              </div>
+              <div class="p-body">
+                <p class="p-cat">YAMAHA S/W SUITE</p>
+                <h3>무인화 관리 소프트웨어</h3>
+                <p class="p-desc">
+                  YAMAHA의 ‘1 Stop Smart Solution’ 철학을 완성하는 인더스트리 4.0 소프트웨어 제품군. “멈추지 않고, 불량을 만들지 않으며, 사람 손이 가지 않는” 무인 라인을 구현합니다.
+                </p>
+
+                <!-- 상세 스펙 아코디언 토글 -->
+                <div class="spec-accordion">
+                  <button class="spec-trigger" type="button" aria-expanded="false">
+                    <span>⚙️ YAMAHA 솔루션 상세 기능</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="spec-panel">
+                    <table class="spec-table">
+                      <tr>
+                        <th>핵심 개념</th>
+                        <td>YAMAHA ‘1 Stop Smart Solution’ (공장 전 공정 통합 지원)</td>
+                      </tr>
+                      <tr>
+                        <th>3대 실현 목표</th>
+                        <td>“Doesn’t Stop”(무정지) · “Doesn’t Make Defect”(무불량) · “Operator-Free”(무인화)</td>
+                      </tr>
+                      <tr>
+                        <th>라인 관제 모니터링</th>
+                        <td>실시간 OEE 산출, 노즐/피더 상태 진단, M2M 라인 피드백 제어</td>
+                      </tr>
+                      <tr>
+                        <th>데이터 호환 규격</th>
+                        <td>SEMI SMT-ELS, IPC-CFX, SECS/GEM, OPC-UA 등 글로벌 표준 지원</td>
+                      </tr>
+                      <tr>
+                        <th>품질 추적성</th>
+                        <td>PCB 단위 부품 실장 이력, 인쇄·검사 영상 풀 트레이서빌리티(Traceability)</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">1 Stop Smart Solution</span>
+                  <span class="tag em">M2M 라인 제어</span>
+                  <span class="tag">SEMI SMT-ELS</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 스마트팩토리 솔루션 ================= -->
+      <section class="section" id="solutions">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">SMART FACTORY SOLUTION</p>
+            <h2>장비 한 대가 아니라, 라인 전체를 설계합니다</h2>
+            <p class="lead">
+              인쇄 → 실장 → 검사 → 리플로우로 이어지는 공정 흐름을 기준으로, 무인화와 데이터 통합까지 포함한 토탈
+              솔루션을 제안합니다.
+            </p>
+          </div>
+
+          <div class="sol-grid">
+            <div class="sol-card">
+              <span class="idx">01</span>
+              <h3>공정 무인화</h3>
+              <p>
+                부품 자동 로딩 피더와 SMD 스마트 스토리지, 자동 설정 전환을 조합해 사람 손이 닿지 않는 라인을
+                구성합니다.
+              </p>
+            </div>
+            <div class="sol-card">
+              <span class="idx">02</span>
+              <h3>실시간 모니터링</h3>
+              <p>마운터·프린터·검사기의 상태와 생산 실적을 한 화면에서 확인하고, 이상 징후를 즉시 감지합니다.</p>
+            </div>
+            <div class="sol-card">
+              <span class="idx">03</span>
+              <h3>데이터 통합</h3>
+              <p>설비에서 발생하는 품질·생산 데이터를 통합 관리해 수율 개선과 라인 최적화의 근거로 활용합니다.</p>
+            </div>
+          </div>
+
+          <div class="flow" style="margin-bottom: 32px;">
+            <span class="flow-label">SMT LINE CONFIGURATION</span>
+            <span class="flow-step">스크린 프린터</span>
+            <span class="flow-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 6l6 6-6 6" /></svg
+            ></span>
+            <span class="flow-step on">마운터</span>
+            <span class="flow-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 6l6 6-6 6" /></svg
+            ></span>
+            <span class="flow-step">3D AOI 검사</span>
+            <span class="flow-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 6l6 6-6 6" /></svg
+            ></span>
+            <span class="flow-step">리플로우 오븐</span>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; text-align:center; overflow:hidden; box-shadow:0 8px 24px rgba(15,40,78,0.04);">
+            <img src="https://www.genspark.ai/api/files/s/5swA2RY6?token=awYlADaINgMNhEXIMn8IVA" alt="YAMAHA SMT 풀 라인업 설비 구성" style="max-width:100%; height:auto; margin:0 auto; display:block;" />
+            <p style="margin:14px 0 0; font-size:13.5px; font-weight:700; color:var(--ink-2);">YAMAHA 1-STOP SMART SOLUTION 풀 라인업 설비 구성</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 회사소개 ================= -->
+      <section class="section panel" id="about">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">ABOUT YK CORPORATION</p>
+            <h2>1991년부터, SMT 라인의 한 축으로</h2>
+          </div>
+
+          <div class="about-grid">
+            <div>
+              <p>
+                YK코퍼레이션은 <strong>1991년부터 전자 업계 SMT 실장 분야</strong>에서 신뢰를 쌓아가고 있는 기업입니다.
+                2008년, 글로벌 시장에서 선두를 달리는 일본 <strong>YAMAHA(사)와 공식 계약</strong>을 체결하며 더욱
+                강력하고 경쟁력 있는 제품과 차별화된 서비스를 고객에게 제공할 수 있는 책임을 갖고 최선을 다하고
+                있습니다.
+              </p>
+              <p>
+                저희가 공급하는 것은 장비 한 대가 아니라, 라인이 멈추지 않게 하는 시간입니다. 장비 선정부터 라인 구성,
+                설치·시운전, 정기점검과 사후 지원까지 한 창구에서 책임지는 것 — 그것이 YK코퍼레이션이 오랫동안 선택받아
+                온 이유입니다.
+              </p>
+              <p>
+                앞으로도 고객의 요구에 부응하고, 글로벌 경쟁력을 갖춘 기업으로 성장하며, 더 나은 미래를 만들어
+                가겠습니다.
+              </p>
+            </div>
+
+            <ul class="timeline">
+              <li>
+                <p class="yr">1991</p>
+                <p class="tx">SMT 실장 분야 사업 시작</p>
+                <p class="sb">전자 업계 표면실장 공정을 중심으로 사업 기반을 구축했습니다.</p>
+              </li>
+              <li>
+                <p class="yr">2008</p>
+                <p class="tx">YAMAHA(사) 공식 대리점 계약 체결</p>
+                <p class="sb">마운터·스크린 프린터·검사 장비를 국내에 공식 공급하기 시작했습니다.</p>
+              </li>
+              <li>
+                <p class="yr">PRESENT</p>
+                <p class="tx">스마트팩토리 토탈 솔루션 파트너</p>
+                <p class="sb">설비 공급을 넘어 라인 무인화·데이터 통합까지 제안하는 파트너로 성장했습니다.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 기술지원 ================= -->
+      <section class="section" id="support">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">CUSTOMER SUPPORT</p>
+            <h2>설치 이후가 진짜 시작입니다</h2>
+            <p class="lead">
+              장비 도입은 시작점일 뿐입니다. 정기점검, 기술지원, 교육까지 YK코퍼레이션의 담당 엔지니어가 직접
+              대응합니다.
+            </p>
+          </div>
+
+          <div class="sup-grid">
+            <div class="sup-card">
+              <h3>기술지원</h3>
+              <p>라인 운영 중 발생하는 설비 이슈에 대해 전담 엔지니어가 유선·방문 지원을 제공합니다.</p>
+              <ul>
+                <li>장비 이상 진단 및 원격 지원</li>
+                <li>공정 파라미터 최적화 컨설팅</li>
+              </ul>
+            </div>
+            <div class="sup-card">
+              <h3>정기점검 및 A/S</h3>
+              <p>정기적인 예방 점검으로 설비 가동률을 유지하고, 예상치 못한 정지 리스크를 줄입니다.</p>
+              <ul>
+                <li>정기 점검 주기 맞춤 설계</li>
+                <li>순정 부품 공급 및 교체</li>
+              </ul>
+            </div>
+            <div class="sup-card">
+              <h3>다운로드 · 기술 교육</h3>
+              <p>모델별 카탈로그와 매뉴얼을 제공하고, 운용 인력 대상 기술 교육을 지원합니다.</p>
+              <ul>
+                <li>모델별 카탈로그 PDF 요청</li>
+                <li>운용자·엔지니어 교육 안내</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+          <!-- ================= 문의 ================= -->
+          <section class="section panel" id="contact">
+            <div class="container">
+              <div class="section-head">
+                <p class="eyebrow">CONTACT US</p>
+                <h2>기판 조건만 알려주시면, 모델부터 제안합니다</h2>
+                <p class="lead">
+                  국내 본사 및 베트남 지사(YK CORPORATION VINA)를 통해 글로벌 현장 어디서든 신속한 SMT 기술지원과 맞춤 제안을 제공합니다.
+                </p>
+              </div>
+
+              <div class="contact-grid">
+                <div>
+                  <!-- 국내 본사 카드 -->
+                  <div class="branch-card" style="margin-bottom: 24px;">
+                    <div class="branch-header">
+                      <h3>대한민국 본사 (HQ)</h3>
+                      <span class="branch-badge">KOREA HEADQUARTERS</span>
+                    </div>
+                    <dl style="margin: 0">
+                      <div class="info-item">
+                        <div class="info-ico">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" />
+                            <circle cx="12" cy="10" r="2.6" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>ADDRESS</dt>
+                          <dd>경기도 용인시 기흥구 동백8로 131번길 35<br />(동백동 44-1) · 우 16999</dd>
+                        </div>
+                      </div>
+
+                      <div class="info-item">
+                        <div class="info-ico">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 5.5c0-1 .8-1.8 1.8-1.8h2c.8 0 1.5.5 1.7 1.3l.7 2.4c.2.7 0 1.4-.6 1.8l-1.3 1a12 12 0 0 0 5 5l1-1.3c.5-.6 1.2-.8 1.9-.6l2.4.7c.8.2 1.3.9 1.3 1.7v2c0 1-.8 1.8-1.8 1.8A15.6 15.6 0 0 1 4.5 5.5Z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>TELEPHONE &amp; FAX</dt>
+                          <dd>전화 <a href="tel:07082719880">070-8271-9880</a><br />팩스 031-898-1032</dd>
+                        </div>
+                      </div>
+
+                      <div class="info-item">
+                        <div class="info-ico">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="m3.5 6.5 8.5 6 8.5-6" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>E-MAIL</dt>
+                          <dd><a href="mailto:yk@yk-co.com">yk@yk-co.com</a></dd>
+                        </div>
+                      </div>
+                    </dl>
+
+                    <div class="map-btn-group">
+                      <a
+                        class="map-link"
+                        href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84+%EC%9A%A9%EC%9D%B8%EC%8B%9C+%EA%B8%B0%ED%9D%A5%EA%B5%AC+%EB%8F%99%EB%B0%B18%EB%A1%9C+131%EB%B2%88%EA%B8%B8+35"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                        </svg>
+                        Google 지도로 보기
+                      </a>
+                      <a
+                        class="map-link naver"
+                        href="https://map.naver.com/?query=%EA%B2%BD%EA%B8%B0%EB%8F%84+%EC%9A%A9%EC%9D%B8%EC%8B%9C+%EA%B8%B0%ED%9D%A5%EA%B5%AC+%EB%8F%99%EB%B0%B18%EB%A1%9C+131%EB%B2%88%EA%B8%B8+35"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px">
+                          <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" />
+                          <circle cx="12" cy="10" r="2.4" />
+                        </svg>
+                        네이버 지도
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- 베트남 지사 카드 -->
+                  <div class="branch-card" style="border-left: 4px solid var(--brand);">
+                    <div class="branch-header">
+                      <div>
+                        <h3 style="color:var(--brand);">베트남 지사 (VINA)</h3>
+                        <p style="margin:2px 0 0; font-size:13px; color:var(--ink-3); font-weight:700;">YK CORPORATION VINA · Giám đốc Lee JeongHun</p>
+                      </div>
+                      <span class="branch-badge" style="background:#eaf4fa; color:var(--brand);">VIETNAM BRANCH</span>
+                    </div>
+
+                    <dl style="margin: 0">
+                      <div class="info-item">
+                        <div class="info-ico" style="background:#eaf4fa; color:var(--brand);">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" />
+                            <circle cx="12" cy="10" r="2.6" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>ADDRESS</dt>
+                          <dd style="font-size:14px; line-height:1.6;">
+                            Tầng 2, Số 20 Đặng Thai Mai, Nguyễn Trãi, Phường Ninh Xá, Thành Phố Bắc Ninh, Tỉnh Bắc Ninh, Việt Nam.
+                          </dd>
+                        </div>
+                      </div>
+
+                      <div class="info-item">
+                        <div class="info-ico" style="background:#eaf4fa; color:var(--brand);">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.5 5.5c0-1 .8-1.8 1.8-1.8h2c.8 0 1.5.5 1.7 1.3l.7 2.4c.2.7 0 1.4-.6 1.8l-1.3 1a12 12 0 0 0 5 5l1-1.3c.5-.6 1.2-.8 1.9-.6l2.4.7c.8.2 1.3.9 1.3 1.7v2c0 1-.8 1.8-1.8 1.8A15.6 15.6 0 0 1 4.5 5.5Z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>TEL &amp; MOBILE</dt>
+                          <dd>
+                            Tel <a href="tel:+827082719880">+82.70.8271.9880</a> &nbsp;|&nbsp; Fax +82.31.898.1032<br />
+                            Mobile <a href="tel:+821038210858">+82.10.3821.0858</a> (KR) / <a href="tel:+84378403348">+84.378.403.348</a> (VN)
+                          </dd>
+                        </div>
+                      </div>
+
+                      <div class="info-item">
+                        <div class="info-ico" style="background:#eaf4fa; color:var(--brand);">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="m3.5 6.5 8.5 6 8.5-6" />
+                          </svg>
+                        </div>
+                        <div>
+                          <dt>E-MAIL</dt>
+                          <dd><a href="mailto:0717jhlee@gmail.com">0717jhlee@gmail.com</a></dd>
+                        </div>
+                      </div>
+                    </dl>
+
+                    <div class="map-btn-group">
+                      <a
+                        class="map-link"
+                        href="https://www.google.com/maps/search/?api=1&query=20+%C4%90%E1%BA%B7ng+Thai+Mai%2C+Ninh+X%C3%A1%2C+B%E1%BA%AFc+Ninh%2C+Vi%E1%BB%87t+Nam"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                        </svg>
+                        Google 지도로 보기 (Google Maps)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+            <div class="form-card">
+              <h3>온라인 상담 신청</h3>
+              <p class="hint">담당자가 확인 후 영업일 기준 1~2일 내 회신드립니다.</p>
+
+              <form id="contactForm" action="mailto:yk@yk-co.com" method="post" enctype="text/plain">
+                <div class="f-row">
+                  <div class="f-field">
+                    <label for="cname">회사명 <span>*</span></label>
+                    <input id="cname" name="회사명" type="text" placeholder="회사명을 입력하세요" required />
+                  </div>
+                  <div class="f-field">
+                    <label for="pname">담당자명 <span>*</span></label>
+                    <input id="pname" name="담당자명" type="text" placeholder="성함을 입력하세요" required />
+                  </div>
+                </div>
+
+                <div class="f-row">
+                  <div class="f-field">
+                    <label for="tel">연락처 <span>*</span></label>
+                    <input id="tel" name="연락처" type="tel" placeholder="010-0000-0000" required />
+                  </div>
+                  <div class="f-field">
+                    <label for="email">이메일 <span>*</span></label>
+                    <input id="email" name="이메일" type="email" placeholder="name@company.com" required />
+                  </div>
+                </div>
+
+                <div class="f-row">
+                  <div class="f-field">
+                    <label for="model">관심 제품</label>
+                    <select id="model" name="관심제품">
+                      <option value="미지정">선택해 주세요</option>
+                      <option value="표면실장용 마운터">표면실장용 마운터</option>
+                      <option value="스크린 프린터">스크린 프린터</option>
+                      <option value="3D AOI 검사기 / SPI">3D AOI 검사기 / SPI</option>
+                      <option value="하이브리드 마운터 (YRH10)">하이브리드 마운터 (YRH10)</option>
+                      <option value="SMD 스마트 스토리지">SMD 스마트 스토리지</option>
+                      <option value="무인화 관리 소프트웨어">무인화 관리 소프트웨어</option>
+                      <option value="라인 구성 전체 상담">라인 구성 전체 상담</option>
+                    </select>
+                  </div>
+                  <div class="f-field">
+                    <label for="size">기판 사이즈 / 월 생산량</label>
+                    <input id="size" name="기판사이즈_생산량" type="text" placeholder="예) 300×250mm / 월 50만 매" />
+                  </div>
+                </div>
+
+                <div class="f-row">
+                  <div class="f-field full">
+                    <label for="msg">문의 내용</label>
+                    <textarea
+                      id="msg"
+                      name="문의내용"
+                      placeholder="도입 검토 중인 공정과 궁금하신 점을 적어주세요."
+                    ></textarea>
+                  </div>
+                </div>
+
+                <label class="agree">
+                  <input type="checkbox" name="privacy" required />
+                  <span>개인정보 수집 및 이용에 동의합니다. (문의 응대 목적으로만 사용됩니다)</span>
+                </label>
+
+                <button class="form-submit" type="submit">yk@yk-co.com으로 문의 보내기</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a href="#top" style="display:inline-block; margin-bottom:18px; text-decoration:none; background:#ffffff; padding:10px 18px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.18);">
+              <img src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION" style="height:64px; width:auto; display:block;" />
+            </a>
+            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL yk@yk-co.com</p>
+            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL 0717jhlee@gmail.com</p>
+          </div>
+
+          <div class="foot-col">
+            <h4>COMPANY</h4>
+            <a href="#about">회사소개</a>
+            <a href="#about">CEO 인사말</a>
+            <a href="#about">연혁</a>
+            <a href="#about">파트너십 · YAMAHA</a>
+          </div>
+
+          <div class="foot-col">
+            <h4>PRODUCTS</h4>
+            <a href="#products">표면실장용 마운터</a>
+            <a href="#products">스크린 프린터</a>
+            <a href="#products">3D AOI 검사기</a>
+                  <a href="#products">하이브리드 마운터</a>
+          </div>
+
+          <div class="foot-col">
+            <h4>SUPPORT</h4>
+            <a href="#support">기술지원</a>
+            <a href="#support">정기점검 및 A/S</a>
+            <a href="#support">카탈로그 다운로드</a>
+            <a href="#contact">도입 상담 문의</a>
+          </div>
+        </div>
+
+        <div class="foot-bottom">
+          <span>Copyright © 2026 YK CORPORATION. All Rights Reserved.</span>
+          <span>서울 · 경기 용인 기흥 | SMT TOTAL SOLUTION PARTNER SINCE 1991</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ---------- 전체메뉴 오버레이 ---------- */
+      var menuBtn = document.getElementById('menuBtn');
+      var allmenu = document.getElementById('allmenu');
+      var menuClose = document.getElementById('menuClose');
+
+      function openMenu() {
+        allmenu.classList.add('open');
+        allmenu.setAttribute('aria-hidden', 'false');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      }
+      function closeMenu() {
+        allmenu.classList.remove('open');
+        allmenu.setAttribute('aria-hidden', 'true');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      }
+
+      menuBtn.addEventListener('click', function () {
+        if (allmenu.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+      menuClose.addEventListener('click', closeMenu);
+
+      allmenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
+
+      /* ---------- 히어로 배경 영상 재생 / 일시정지 ---------- */
+      var heroVideo = document.getElementById('heroVideo');
+      var videoToggle = document.getElementById('videoToggle');
+      var videoToggleText = document.getElementById('videoToggleText');
+      var videoIcon = document.getElementById('videoIcon');
+
+      var ICON_PAUSE =
+        '<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>';
+      var ICON_PLAY = '<path d="M8 5.5v13l11-6.5z"/>';
+
+      videoToggle.addEventListener('click', function () {
+        if (heroVideo.paused) {
+          var p = heroVideo.play();
+          if (p && p.catch) {
+            p.catch(function () {});
+          }
+          videoToggleText.textContent = '영상 일시정지';
+          videoIcon.innerHTML = ICON_PAUSE;
+        } else {
+          heroVideo.pause();
+          videoToggleText.textContent = '영상 재생';
+          videoIcon.innerHTML = ICON_PLAY;
+        }
+      });
+
+      /* ---------- 제품 카테고리 필터 ---------- */
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var pCards = document.querySelectorAll('.p-card');
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+
+          var cat = btn.getAttribute('data-filter');
+          pCards.forEach(function (card) {
+            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      /* ---------- 상세 스펙 아코디언 토글 인터랙션 ---------- */
+      var specTriggers = document.querySelectorAll('.spec-trigger');
+      specTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var accordion = trigger.closest('.spec-accordion');
+          var isOpen = accordion.classList.contains('open');
+          
+          if (isOpen) {
+            accordion.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+          } else {
+            accordion.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* ---------- 문의 보내기 폼 메일 연동 스크립트 ---------- */
+      var contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          var cname = document.getElementById('cname').value;
+          var pname = document.getElementById('pname').value;
+          var tel = document.getElementById('tel').value;
+          var email = document.getElementById('email').value;
+          var model = document.getElementById('model').value;
+          var size = document.getElementById('size').value;
+          var msg = document.getElementById('msg').value;
+
+          var subject = encodeURIComponent('[YK코퍼레이션 홈페이지 문의] ' + (cname ? cname + ' ' : '') + pname + '님의 상담 신청');
+          var body = encodeURIComponent(
+            '■ 회사명: ' + cname + '\n' +
+            '■ 담당자명: ' + pname + '\n' +
+            '■ 연락처: ' + tel + '\n' +
+            '■ 이메일: ' + email + '\n' +
+            '■ 관심 제품: ' + model + '\n' +
+            '■ 기판 사이즈 / 생산량: ' + (size || '미입력') + '\n\n' +
+            '■ 문의 내용:\n' + (msg || '내용 없음')
+          );
+
+          // 사용자의 기본 메일 클라이언트(아웃룩, 기본 메일 등) 실행
+          window.location.href = 'mailto:yk@yk-co.com?subject=' + subject + '&body=' + body;
+        });
+      }
+    </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
