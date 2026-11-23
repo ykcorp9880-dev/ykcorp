@@ -1067,7 +1067,7 @@
           min-height: 0;
         }
       }
-      @media (max-width: 760px) {
+
         .dt-intro,
         .dt-body {
           padding-left: 20px;
@@ -1167,6 +1167,107 @@
         font-size: 14px;
         font-weight: 700;
         color: var(--navy);
+      }
+      /* 설비 구성 사진 + 장비 명칭 콜아웃 */
+      .lineup-fig {
+        margin: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 22px 20px;
+        box-shadow: 0 8px 24px rgba(15, 40, 78, 0.04);
+      }
+      .lf-stage {
+        position: relative;
+        container-type: inline-size;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .lf-stage img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .lf {
+        position: absolute;
+        left: var(--x);
+        bottom: 17.2%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.45em;
+        padding: 0.4em 0.75em 0.42em;
+        background: #fff;
+        border: 1px solid #d8e3ec;
+        border-radius: 999px;
+        box-shadow: 0 6px 16px -8px rgba(15, 40, 78, 0.55);
+        white-space: nowrap;
+        font-size: clamp(9px, 1.28cqw, 13.5px);
+        line-height: 1.25;
+        z-index: 2;
+      }
+      .lf::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+        width: 1px;
+        height: 1.15em;
+        background: rgba(15, 40, 78, 0.28);
+      }
+      .lf::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 1.15em);
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand-l);
+        box-shadow: 0 0 0 2px rgba(18, 135, 196, 0.18);
+      }
+      .lf-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 1.55em;
+        height: 1.55em;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        font-size: 0.82em;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+      .lf-name {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--navy);
+      }
+      .lf-key {
+        display: none;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        justify-content: center;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .lf-key li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink-2);
+        letter-spacing: -0.015em;
+      }
+      .lf-key .lf-num {
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
       }
       .flow-step.on {
         background: var(--brand);
@@ -1679,6 +1780,39 @@
           grid-template-columns: 1fr;
         }
       }
+      @media (max-width: 760px) {
+        .lineup-fig {
+          padding: 16px 12px 14px;
+        }
+        .lf {
+          padding: 0;
+          gap: 0;
+          border: 0;
+          background: transparent;
+          box-shadow: none;
+          bottom: 17%;
+        }
+        .lf::before {
+          display: none;
+        }
+        .lf::after {
+          display: none;
+        }
+        .lf-name {
+          display: none;
+        }
+        .lf-num {
+          width: 1.9em;
+          height: 1.9em;
+          font-size: 0.9em;
+          box-shadow: 0 0 0 2px #fff, 0 4px 10px -3px rgba(15, 40, 78, 0.7);
+        }
+        .lf-key {
+          display: flex;
+          margin-top: 14px;
+          gap: 5px 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1775,7 +1909,7 @@
 
       <div class="allmenu-foot">
         <span><strong>대표전화</strong> 070-8271-9880</span>
-        <span><strong>이메일</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c55476c5547014f43024f4341">[email&#160;protected]</a></span>
+        <span><strong>이메일</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f06143f0614521c10511c1012">[email&#160;protected]</a></span>
         <span><strong>주소</strong> 경기도 용인시 기흥구 동백8로 131번길 35</span>
         <a href="#contact">도입 상담 바로가기 →</a>
       </div>
@@ -2002,10 +2136,29 @@
             <span class="flow-step">리플로우 오븐</span>
           </div>
 
-          <div style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; text-align:center; overflow:hidden; box-shadow:0 8px 24px rgba(15,40,78,0.04);">
-            <img src="https://www.genspark.ai/api/files/s/5swA2RY6?token=awYlADaINgMNhEXIMn8IVA" alt="YAMAHA SMT 풀 라인업 설비 구성" style="max-width:100%; height:auto; margin:0 auto; display:block;" />
-            <p style="margin:14px 0 0; font-size:13.5px; font-weight:700; color:var(--ink-2);">YAMAHA 1-STOP SMART SOLUTION 풀 라인업 설비 구성</p>
-          </div>
+          <figure class="lineup-fig">
+            <div class="lf-stage">
+              <img src="https://www.genspark.ai/api/files/s/5swA2RY6?token=awYlADaINgMNhEXIMn8IVA" alt="YAMAHA SMT 풀 라인업 설비 구성 — 스크린 프린터, 마운터, 디스펜서, 3D AOI 검사기" />
+            <span class="lf" style="--x: 12.5%"><i class="lf-num">1</i><span class="lf-name">스크린 프린터</span></span>
+            <span class="lf" style="--x: 24.5%"><i class="lf-num">2</i><span class="lf-name">마운터</span></span>
+            <span class="lf" style="--x: 38.0%"><i class="lf-num">3</i><span class="lf-name">마운터 · 피더 카트</span></span>
+            <span class="lf" style="--x: 54.5%"><i class="lf-num">4</i><span class="lf-name">마운터 · 피더 카트</span></span>
+            <span class="lf" style="--x: 71.0%"><i class="lf-num">5</i><span class="lf-name">디스펜서</span></span>
+            <span class="lf" style="--x: 89.0%"><i class="lf-num">6</i><span class="lf-name">3D AOI 검사기</span></span>
+            </div>
+            <ul class="lf-key">
+            <li><i class="lf-num">1</i>스크린 프린터</li>
+            <li><i class="lf-num">2</i>마운터</li>
+            <li><i class="lf-num">3</i>마운터 · 피더 카트</li>
+            <li><i class="lf-num">4</i>마운터 · 피더 카트</li>
+            <li><i class="lf-num">5</i>디스펜서</li>
+            <li><i class="lf-num">6</i>3D AOI 검사기</li>
+            </ul>
+            <figcaption style="margin:16px 0 0; text-align:center; font-size:13.5px; font-weight:700; color:var(--ink-2); letter-spacing:-0.015em;">
+              YAMAHA 1-STOP SMART SOLUTION 풀 라인업 설비 구성
+              <span style="display:block; margin-top:5px; font-size:12px; font-weight:600; color:var(--ink-3);">사진 속 설비를 순서대로 표시했습니다 · 사양·구성은 상담에 따라 달라집니다</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -2152,7 +2305,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="/cdn-cgi/l/email-protection#423b29023b296f212d6c212d2f"><span class="__cf_email__" data-cfemail="453c2e053c2e68262a6b262a28">[email&#160;protected]</span></a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#691002291002440a06470a0604"><span class="__cf_email__" data-cfemail="d0a9bb90a9bbfdb3bffeb3bfbd">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2234,7 +2387,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="/cdn-cgi/l/email-protection#e1d1d6d0d68b898d8484a1868c80888dcf828e8c"><span class="__cf_email__" data-cfemail="7e4e494f491416121b1b3e19131f1712501d1113">[email&#160;protected]</span></a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#3202050305585a5e575772555f535b5e1c515d5f"><span class="__cf_email__" data-cfemail="b9898e888ed3d1d5dcdcf9ded4d8d0d597dad6d4">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2323,7 +2476,7 @@
                   <span>개인정보 수집 및 이용에 동의합니다. (문의 응대 목적으로만 사용됩니다)</span>
                 </label>
 
-                <button class="form-submit" type="submit"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="334a58734a581e505c1d505c5e">[email&#160;protected]</a>으로 문의 보내기</button>
+                <button class="form-submit" type="submit"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd5c7ecd5c781cfc382cfc3c1">[email&#160;protected]</a>으로 문의 보내기</button>
               </form>
             </div>
           </div>
@@ -2339,8 +2492,8 @@
             <a href="#top" style="display:inline-block; margin-bottom:18px; text-decoration:none; background:#ffffff; padding:10px 18px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.18);">
               <img src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION" style="height:64px; width:auto; display:block;" />
             </a>
-            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6bfad86bfadeba5a9e8a5a9ab">[email&#160;protected]</a></p>
-            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86b6b1b7b1eceeeae3e3c6e1ebe7efeaa8e5e9eb">[email&#160;protected]</a></p>
+            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8af3e1caf3e1a7e9e5a4e9e5e7">[email&#160;protected]</a></p>
+            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9999e989ec3c1c5cccce9cec4c8c0c587cac6c4">[email&#160;protected]</a></p>
           </div>
 
           <div class="foot-col">
