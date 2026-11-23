@@ -129,6 +129,13 @@
           color 0.18s ease,
           background 0.18s ease;
       }
+      .gnb-nav a.gnb-blog {
+        color: var(--brand);
+        font-weight: 800;
+      }
+      .gnb-nav a.gnb-blog:hover {
+        color: var(--navy);
+      }
       .gnb-nav a:hover {
         color: var(--brand);
         background: #f2f7fb;
@@ -582,263 +589,491 @@
         line-height: 1.65;
       }
 
-      /* ============ 제품 ============ */
-      .filter-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 40px;
-      }
-      .filter-btn {
-        font-family: inherit;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--ink-2);
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 9px 20px;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-      .filter-btn:hover {
-        border-color: var(--brand);
-        color: var(--brand);
-      }
-      .filter-btn.active {
-        background: var(--navy);
-        border-color: var(--navy);
-        color: #fff;
-      }
-
-      .p-grid {
+      /* ============ 제품 (라인업 + 상세 스펙) ============ */
+      .lineup {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        grid-template-columns: 306px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
       }
-      .p-card {
+      .lineup > * {
+        min-width: 0;
+      }
+      .ln-nav {
+        position: sticky;
+        top: 96px;
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition:
-          transform 0.22s ease,
-          box-shadow 0.22s ease,
-          border-color 0.22s ease;
+        border-radius: 16px;
+        padding: 20px 18px 18px;
+        box-shadow: 0 18px 40px -34px rgba(15, 40, 78, 0.65);
       }
-      .p-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 22px 44px -26px rgba(15, 40, 78, 0.45);
-        border-color: #c6d9e8;
-      }
-      .p-img-box {
-        position: relative;
-        width: 100%;
-        height: 230px;
-        background: #f8fafc;
-        border-bottom: 1px solid var(--line);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .p-img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        background: #ffffff;
-        padding: 8px;
-        transition: transform 0.3s ease;
+      .ln-eyebrow {
         display: block;
-      }
-      .p-card:hover .p-img-box img {
-        transform: scale(1.04);
-      }
-      /* 이미지가 없을 때만 placeholder 표시 */
-      .p-img-box img + .p-img-placeholder {
-        display: none !important;
-      }
-      .p-img-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        color: var(--ink-3);
-        padding: 20px;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #f0f5fa 0%, #e5eef7 100%);
-      }
-      .p-img-placeholder svg {
-        width: 44px;
-        height: 44px;
-        color: var(--brand);
-        opacity: 0.6;
-      }
-      .p-img-placeholder span {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--ink-2);
-      }
-      .p-badge-pos {
-        position: absolute;
-        top: 14px;
-        left: 14px;
-        background: rgba(15, 40, 78, 0.85);
-        -webkit-backdrop-filter: blur(4px);
-        backdrop-filter: blur(4px);
-        color: #fff;
-        font-size: 11px;
+        font-size: 10.5px;
         font-weight: 800;
-        letter-spacing: 0.08em;
-        padding: 4px 10px;
-        border-radius: 6px;
-      }
-      .p-body {
-        padding: 24px 24px 26px;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-      .p-cat {
-        font-size: 11.5px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.18em;
         color: var(--brand);
-        margin: 0 0 6px;
+        margin-bottom: 4px;
       }
-      .p-card h3 {
-        font-size: 20px;
+      .ln-head strong {
+        display: block;
+        font-size: 17px;
         font-weight: 800;
         letter-spacing: -0.025em;
         color: var(--navy);
-        margin: 0 0 10px;
       }
-      .p-desc {
-        font-size: 14px;
-        line-height: 1.68;
+      .ln-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin: 16px 0 18px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+      .ln-tab {
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 700;
         color: var(--ink-2);
-        margin: 0 0 16px;
+        background: #f7fafc;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 9px 6px;
+        cursor: pointer;
+        transition: all 0.16s ease;
+        letter-spacing: -0.01em;
       }
-      
-      /* 접이식 스펙 토글 (아코디언) */
-      .spec-accordion {
-        margin: 0 0 16px;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        background: #f8fafc;
-        overflow: hidden;
+      .ln-tab:hover {
+        border-color: var(--brand-l);
+        color: var(--brand);
+        background: #eef6fb;
       }
-      .spec-trigger {
+      .ln-tab.active {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: #fff;
+        box-shadow: 0 8px 18px -12px rgba(15, 40, 78, 0.9);
+      }
+      .ln-cat {
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: var(--ink-3);
+        margin: 0 0 9px;
+      }
+      .ln-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-height: 120px;
+      }
+      .ln-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
         width: 100%;
+        text-align: left;
+        font-family: inherit;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: #f7fafc;
+        cursor: pointer;
+        transition: all 0.16s ease;
+      }
+      .ln-item:hover {
+        background: #eef6fb;
+        border-color: #d4e6f1;
+      }
+      .ln-model {
+        font-size: 14.5px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .ln-sub {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: var(--ink-3);
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+      }
+      .ln-item.active {
+        background: linear-gradient(135deg, #0f284e 0%, #17427a 100%);
+        border-color: #17427a;
+        box-shadow: 0 12px 24px -16px rgba(15, 40, 78, 0.95);
+      }
+      .ln-item.active .ln-model {
+        color: #fff;
+      }
+      .ln-item.active .ln-sub {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .ln-item.active .ln-model::after {
+        content: '';
+        margin-left: auto;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--emerald-l);
+      }
+      .ln-hint {
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--ink-3);
+        margin: 16px 0 0;
+        padding-top: 13px;
+        border-top: 1px dashed var(--line);
+        letter-spacing: -0.01em;
+      }
+
+      /* 상세 패널 */
+      .lineup-detail {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        min-height: 640px;
+        box-shadow: 0 24px 50px -44px rgba(15, 40, 78, 0.7);
+      }
+      .dt-anim {
+        animation: dtIn 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      }
+      @keyframes dtIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .dt-top {
+        display: grid;
+        grid-template-columns: 1.02fr 1fr;
+        border-bottom: 1px solid var(--line);
+      }
+      .dt-media {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 46px 34px;
+        min-height: 336px;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(18, 135, 196, 0.12), transparent 58%),
+          linear-gradient(160deg, #f9fcfe 0%, #eaf1f7 100%);
+        border-right: 1px solid var(--line);
+      }
+      .dt-media img {
+        mix-blend-mode: multiply;
+        max-width: 100%;
+        max-height: 262px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+      .dt-badge {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        background: rgba(15, 40, 78, 0.9);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      .dt-media.is-dark {
+        padding: 0;
+        background: linear-gradient(150deg, #0f284e 0%, #1b4b80 100%);
+      }
+      .dt-media.is-dark img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        object-fit: contain;
+        mix-blend-mode: normal;
+      }
+      .dt-media.is-dark .dt-serial {
+        color: rgba(255, 255, 255, 0.42);
+      }
+      .dt-serial {
+        position: absolute;
+        bottom: 15px;
+        left: 18px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: rgba(15, 40, 78, 0.38);
+      }
+      .dt-intro {
+        padding: 32px 32px 28px;
+        display: flex;
+        flex-direction: column;
+      }
+      .dt-kicker {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        color: var(--brand);
+        margin: 0 0 8px;
+      }
+      .dt-title {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        color: var(--navy);
+        line-height: 1.2;
+        margin: 0;
+      }
+      .dt-title small {
+        display: block;
+        margin-top: 7px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        color: var(--ink-2);
+      }
+      .dt-tag {
+        font-size: 14px;
+        line-height: 1.72;
+        color: var(--ink-2);
+        margin: 14px 0 0;
+      }
+      .dt-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .dt-stat {
+        background: #f6fafc;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 11px 8px 12px;
+        text-align: center;
+      }
+      .dt-stat b {
+        display: block;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--navy);
+        line-height: 1.25;
+      }
+      .dt-stat span {
+        display: block;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--ink-3);
+        margin-top: 4px;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+      }
+      .dt-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 22px;
+      }
+      .dt-actions .btn {
+        font-size: 13px;
+        padding: 11px 16px;
+        border-radius: 8px;
+      }
+      .dt-actions .btn-ghost {
+        background: #fff;
+        border: 1px solid #cbd8e4;
+        color: var(--navy);
+      }
+      .dt-actions .btn-ghost:hover {
+        background: #eef6fb;
+        border-color: var(--brand-l);
+        color: var(--brand);
+      }
+      .dt-body {
+        padding: 0 32px 30px;
+      }
+      .dt-sec {
+        margin-top: 26px;
+      }
+      .dt-sec h4 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 14px;
-        background: transparent;
-        border: 0;
-        font-family: inherit;
+        gap: 12px;
+        flex-wrap: wrap;
         font-size: 13px;
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: 0.01em;
         color: var(--navy);
-        cursor: pointer;
-        text-align: left;
-        transition: background 0.18s ease;
+        margin: 0 0 4px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--navy);
       }
-      .spec-trigger:hover {
-        background: #edf5fa;
-        color: var(--brand);
+      .dt-src {
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0;
+        color: var(--ink-3);
       }
-      .spec-trigger svg {
-        width: 16px;
-        height: 16px;
-        transition: transform 0.22s ease;
-      }
-      .spec-accordion.open .spec-trigger svg {
-        transform: rotate(180deg);
-      }
-      .spec-accordion.open .spec-trigger {
-        border-bottom: 1px solid #e2e8f0;
-        background: #edf5fa;
-      }
-      .spec-panel {
-        display: none;
-        padding: 14px 16px;
-        background: #ffffff;
-      }
-      .spec-accordion.open .spec-panel {
-        display: block;
-      }
-      .spec-table {
+      table.dt-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 12.5px;
+        font-size: 13px;
       }
-      .spec-table tr {
-        border-bottom: 1px solid #f1f5f9;
+      .dt-table tr {
+        border-bottom: 1px solid #eef2f7;
       }
-      .spec-table tr:last-child {
+      .dt-table tr:last-child {
         border-bottom: 0;
       }
-      .spec-table th {
-        width: 38%;
-        padding: 6px 0;
+      .dt-table th {
+        width: 30%;
         text-align: left;
+        padding: 10px 16px 10px 0;
         font-weight: 700;
         color: var(--navy);
         vertical-align: top;
+        line-height: 1.55;
+        letter-spacing: -0.015em;
       }
-      .spec-table td {
-        padding: 6px 0;
+      .dt-table td {
+        padding: 10px 0;
         color: var(--ink-2);
-        line-height: 1.5;
+        line-height: 1.62;
         vertical-align: top;
-      }
-      .btn-spec-modal {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: 100%;
-        padding: 9px 12px;
-        margin-top: 10px;
-        border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        background: #fff;
-        color: var(--brand);
-        font-size: 12.5px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.18s ease;
-      }
-      .btn-spec-modal:hover {
-        background: var(--brand);
-        color: #fff;
-        border-color: var(--brand);
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: auto;
-      }
-      .tag {
-        font-size: 12px;
-        font-weight: 700;
-        color: #0b5c8a;
-        background: #edf6fb;
-        padding: 5px 11px;
-        border-radius: 7px;
         letter-spacing: -0.01em;
       }
-      .tag.em {
-        background: #e7f7f1;
-        color: #0b7a55;
+      .dt-table tr:hover td,
+      .dt-table tr:hover th {
+        background: #fbfdfe;
+      }
+      ul.dt-feat {
+        list-style: none;
+        padding: 4px 0 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 24px;
+      }
+      ul.dt-feat li {
+        position: relative;
+        padding-left: 19px;
+        font-size: 12.5px;
+        line-height: 1.62;
+        color: var(--ink-2);
+        letter-spacing: -0.01em;
+      }
+      ul.dt-feat li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 2px;
+        background: var(--emerald);
+        box-shadow: 0 0 0 3px rgba(14, 159, 110, 0.13);
+      }
+      .dt-note {
+        margin: 24px 0 0;
+        padding: 12px 15px;
+        background: #f7fafc;
+        border-left: 3px solid var(--emerald);
+        border-radius: 0 8px 8px 0;
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: var(--ink-3);
+        letter-spacing: -0.01em;
+      }
+      .dt-note strong {
+        color: var(--navy);
+      }
+
+      @media (max-width: 1080px) {
+        .lineup {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .ln-nav {
+          position: static;
+          padding: 16px 16px 14px;
+        }
+        .ln-tabs {
+          margin: 12px 0 14px;
+          padding-bottom: 12px;
+        }
+        .ln-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          min-height: 0;
+        }
+        .ln-item {
+          min-width: 0;
+        }
+        .ln-hint {
+          margin-top: 12px;
+        }
+        .dt-top {
+          grid-template-columns: 1fr;
+        }
+        .dt-media {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          min-height: 250px;
+          padding: 34px 24px;
+        }
+        .dt-media img {
+          max-height: 210px;
+        }
+        .lineup-detail {
+          min-height: 0;
+        }
+      }
+      @media (max-width: 760px) {
+        .dt-intro,
+        .dt-body {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .dt-title {
+          font-size: 23px;
+        }
+        .dt-stats {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 6px;
+        }
+        .dt-stat b {
+          font-size: 14px;
+        }
+        ul.dt-feat {
+          grid-template-columns: 1fr;
+        }
+        .dt-table th {
+          width: 38%;
+        }
+        .dt-table th,
+        .dt-table td {
+          font-size: 12px;
+          padding-top: 9px;
+          padding-bottom: 9px;
+        }
+        .dt-actions .btn {
+          flex: 1 1 100%;
+          justify-content: center;
+        }
       }
 
       /* ============ 솔루션 ============ */
@@ -1434,6 +1669,7 @@
           <a href="#products">제품 라인업</a>
           <a href="#solutions">스마트 솔루션</a>
           <a href="#support">기술지원</a>
+          <a class="gnb-blog" href="https://blog.naver.com/ykcorp2024" target="_blank" rel="noopener">블로그 ↗</a>
         </nav>
 
         <div class="gnb-actions">
@@ -1495,6 +1731,7 @@
 
           <div class="am-col">
             <h3>CUSTOMER SUPPORT</h3>
+            <a href="https://blog.naver.com/ykcorp2024" target="_blank" rel="noopener">블로그 · 소식 <span>blog.naver.com/ykcorp2024</span></a>
             <a href="#support">기술지원</a>
             <a href="#support">정기점검 및 A/S</a>
             <a href="#support">다운로드 · 카탈로그</a>
@@ -1513,7 +1750,7 @@
 
       <div class="allmenu-foot">
         <span><strong>대표전화</strong> 070-8271-9880</span>
-        <span><strong>이메일</strong> yk@yk-co.com</span>
+        <span><strong>이메일</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="384153784153155b57165b5755">[email&#160;protected]</a></span>
         <span><strong>주소</strong> 경기도 용인시 기흥구 동백8로 131번길 35</span>
         <a href="#contact">도입 상담 바로가기 →</a>
       </div>
@@ -1631,382 +1868,37 @@
             <p class="eyebrow">YAMAHA SMT FULL LINE-UP</p>
             <h2>스마트팩토리를 위한 토탈 솔루션, 전체 라인업</h2>
             <p class="lead">
-              표면실장용 마운터, 스크린 프린터, 3D AOI 검사기, 하이브리드 마운터, SMD 스토리지 시스템, 무인화 관리 소프트웨어.
-              라인을 구성하는 모든 설비를 한 곳에서 제안합니다.
+              좌측에서 카테고리를 고르고 기종을 선택하면 오른쪽 패널에 상세 사양이 바로 표시됩니다. 마운터·프린터·검사기 사양은 YAMAHA 공식 카탈로그, 스토리지는 공급 사양 기준입니다.
+              마운터부터 스크린 프린터, 3D AOI 검사기, 하이브리드 플레이서, SMD 스마트 스토리지까지 — 라인을 구성하는 모든 설비를
+              YK코퍼레이션이 한 창구에서 공급하고 기술지원합니다.
             </p>
           </div>
 
-          <div class="filter-row">
-            <button class="filter-btn active" data-filter="all">전체 보기</button>
-            <button class="filter-btn" data-filter="mounter">마운터</button>
-            <button class="filter-btn" data-filter="printer">프린터</button>
-            <button class="filter-btn" data-filter="aoi">AOI 검사기</button>
-            <button class="filter-btn" data-filter="bonder">하이브리드 마운터</button>
-            <button class="filter-btn" data-filter="system">스토리지 · SW</button>
-          </div>
-
-          <div class="p-grid">
-            <!-- 1. 표면실장용 마운터 -->
-            <article class="p-card" data-cat="mounter">
-              <div class="p-img-box">
-                <span class="p-badge-pos">MOUNTER</span>
-                <img src="https://www.genspark.ai/api/files/s/xuJwGLqO?token=awYlAOMVUUj0lBMTSJl68A" alt="YAMAHA 프리미엄 마운터 YRM20" />
+          <div class="lineup">
+            <aside class="ln-nav" aria-label="제품 라인업 선택">
+              <div class="ln-head">
+                <span class="ln-eyebrow">PRODUCT LINE-UP</span>
+                <strong>장비를 선택하세요</strong>
               </div>
-              <div class="p-body">
-                <p class="p-cat">YAMAHA MOUNTER</p>
-                <h3>표면실장용 마운터</h3>
-                <p class="p-desc">
-                  1-Head Solution의 결정체. 초고속 로터리 RM 헤드(115,000CPH)와 인라인 다기능 헤드를 결합하여 압도적인 생산성과 다품종 대응 유연성을 제공합니다.
-                </p>
 
-                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>대표 기종</th>
-                        <td>YRM20 / YRM10 / YRM20DL</td>
-                      </tr>
-                      <tr>
-                        <th>실장 능력(최적 조건)</th>
-                        <td>2-Beam RM 헤드: 115,000 CPH<br />1-Beam RM 헤드: 57,500 CPH<br />HM 인라인 헤드: 98,000 CPH</td>
-                      </tr>
-                      <tr>
-                        <th>실장 정밀도</th>
-                        <td>±0.025 mm (Cpk ≧ 1.0, 고정밀 모드)</td>
-                      </tr>
-                      <tr>
-                        <th>대응 부품 크기</th>
-                        <td>0201mm(0.25×0.125mm) ~ W55×L100mm, 높이 15mm 이하 (FM 헤드 장착 시 높이 30mm)</td>
-                      </tr>
-                      <tr>
-                        <th>대응 기판(PCB)</th>
-                        <td>1-PCB 반송: L50×W50mm ~ L810×W510mm<br />2-PCB 반송(듀얼스테이지): L50×W50mm ~ L380×W510mm</td>
-                      </tr>
-                      <tr>
-                        <th>피더 장착 수량</th>
-                        <td>카트리지 일괄교환: 최대 128품종 (8mm 테이프 기준) / 트레이 최대 60품종 (eATS30×2)</td>
-                      </tr>
-                      <tr>
-                        <th>통신 규격</th>
-                        <td>SEMI SMT-ELS 호환 대응 (Auto Program Change-Over)</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="tags">
-                  <span class="tag">YRM20</span>
-                  <span class="tag">YRM10</span>
-                  <span class="tag em">115,000 CPH · ±0.025mm</span>
-                </div>
+              <div class="ln-tabs" role="tablist" aria-label="제품 카테고리">
+                <button class="ln-tab active" type="button" role="tab" aria-selected="true" data-cat="mounter">마운터</button>
+                <button class="ln-tab" type="button" role="tab" aria-selected="false" data-cat="printer">프린터</button>
+                <button class="ln-tab" type="button" role="tab" aria-selected="false" data-cat="aoi">AOI 검사</button>
+                <button class="ln-tab" type="button" role="tab" aria-selected="false" data-cat="bonder">하이브리드</button>
+                <button class="ln-tab" type="button" role="tab" aria-selected="false" data-cat="system">스토리지 · SW</button>
               </div>
-            </article>
 
-            <!-- 2. 스크린 프린터 -->
-            <article class="p-card" data-cat="printer">
-              <div class="p-img-box">
-                <span class="p-badge-pos">SCREEN PRINTER</span>
-                <img src="https://www.genspark.ai/api/files/s/g3ox6kD0?token=awYlAGWHVYwy942rbBev-w" alt="YAMAHA 프리미엄 프린터 YRP10" />
-              </div>
-              <div class="p-body">
-                <p class="p-cat">YAMAHA PRINTER</p>
-                <h3>스크린 프린터</h3>
-                <p class="p-desc">
-                  완전 자동 셋업 및 모델 교체를 실현하는 고속·고품질 인쇄기. 독자적인 3S 스윙 싱글 스퀴지 헤드와 ±16μm 인쇄 정밀도로 고밀도 실장의 품질을 보장합니다.
-                </p>
+              <p class="ln-cat" id="lnCatLabel">SURFACE MOUNTER</p>
+              <div class="ln-list" id="lnList" role="tablist" aria-label="기종 선택"></div>
 
-                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>대표 기종</th>
-                        <td>YRP10 / YRP10e</td>
-                      </tr>
-                      <tr>
-                        <th>인쇄 헤드</th>
-                        <td>3S 헤드 (Swing Single Squeegee)</td>
-                      </tr>
-                      <tr>
-                        <th>코어 사이클 타임</th>
-                        <td>6.0 초 (인쇄 시간 제외 기준 최단 사이클)</td>
-                      </tr>
-                      <tr>
-                        <th>인쇄 정밀도</th>
-                        <td>위치반복 정밀도(±6σ): ±8 μm (Cp ≧ 2.0)<br />인쇄 정밀도(μ±6σ): ±16 μm (Cpk ≧ 2.0, CeTaQ 측정치)</td>
-                      </tr>
-                      <tr>
-                        <th>대응 기판(PCB)</th>
-                        <td>싱글 레인: L50×W50mm ~ L510×W510mm (옵션 시 최대 L650×W510mm)<br />듀얼 레인: L50×W50mm ~ L420×W330mm</td>
-                      </tr>
-                      <tr>
-                        <th>대응 스텐실(마스크)</th>
-                        <td>L750×W750mm, L736×W736mm(29"), L650×W550mm, L584×W584mm(23") 등 다품종 마스크 대응</td>
-                      </tr>
-                      <tr>
-                        <th>자동화 옵션</th>
-                        <td>스텐실 자동 교체(PSC), 솔더 자동 보급(2D 검사 옵션 지원)</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+              <p class="ln-hint">
+                기종을 클릭하면 오른쪽에 상세 사양이 표시됩니다. 사양은 YAMAHA 공식 카탈로그 및 공급 사양 기준이며, 정확한 견적·납기는
+                <a href="https://www.yk-co.com" target="_blank" rel="noopener">YK코퍼레이션</a>으로 문의하세요.
+              </p>
+            </aside>
 
-                <div class="tags">
-                  <span class="tag">YRP10</span>
-                  <span class="tag em">YRP10e</span>
-                  <span class="tag">6.0초 사이클 · ±16μm 정밀도</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- 3. 3D AOI 검사기 -->
-            <article class="p-card" data-cat="aoi">
-              <div class="p-img-box">
-                <span class="p-badge-pos">3D AOI &amp; SPI</span>
-                <img src="https://www.genspark.ai/api/files/s/XaGH05dT?token=awYlAOW3Q8wzvI28_yCWRg" alt="YAMAHA 3D 광학검사기 YRi-V" />
-              </div>
-              <div class="p-body">
-                <p class="p-cat">YAMAHA 3D AOI</p>
-                <h3>3D AOI 검사기</h3>
-                <p class="p-desc">
-                  초고속 56.8cm²/s 검사와 8방향 3D 프로젝터 탑재. 동축 조명과 5μm 초정밀 렌즈로 미세 0201 부품부터 경면 부품까지 사각지대 없이 완벽 검출합니다.
-                </p>
-
-                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>대표 기종</th>
-                        <td>YRi-V / YRi-V TypeHS</td>
-                      </tr>
-                      <tr>
-                        <th>카메라 화소수</th>
-                        <td>12 Megapixels / 25 Megapixels (4방향 경사카메라: 20 Megapixels)</td>
-                      </tr>
-                      <tr>
-                        <th>광학 해상도</th>
-                        <td>12 μm / 7 μm / 5 μm (동축 조명 탑재)</td>
-                      </tr>
-                      <tr>
-                        <th>3D 검사 속도</th>
-                        <td>최대 56.8 cm²/s (최적 4프로젝터 조건 하)</td>
-                      </tr>
-                      <tr>
-                        <th>3D 프로젝터</th>
-                        <td>8-Way Projector / 4-Way Projector (최대 측정 높이 25mm)</td>
-                      </tr>
-                      <tr>
-                        <th>대응 기판(PCB)</th>
-                        <td>L50×W50mm ~ L610×W610mm (옵션 장척 기판: L760mm 대응)</td>
-                      </tr>
-                      <tr>
-                        <th>특장점</th>
-                        <td>마운터 데이터/CAD 자동 검사 데이터 변환 &amp; 마운터 피드백 제어</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="tags">
-                  <span class="tag">YRi-V</span>
-                  <span class="tag">YRi-V TypeHS</span>
-                  <span class="tag em">56.8cm²/s · 8-Way 3D</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- 4. 하이브리드 마운터 (플립칩 본더) -->
-            <article class="p-card" data-cat="bonder">
-              <div class="p-img-box">
-                <span class="p-badge-pos">HYBRID MOUNTER</span>
-                <img src="https://www.genspark.ai/api/files/s/4PWOlC6R?token=awYlAFgLum6W9UT3hfTEag" alt="YAMAHA 하이브리드 마운터 YRH10 / YRH10W" />
-              </div>
-              <div class="p-body">
-                <p class="p-cat">HYBRID MOUNTER</p>
-                <h3>하이브리드 마운터 (Hybrid Placer)</h3>
-                <p class="p-desc">
-                  반도체 베어 다이(Bare Die) 실장과 일반 SMD 칩 실장을 단 1대에서 고속·고정밀로 처리하는 하이브리드 마운터. SiP 및 첨단 패키징 모듈 생산의 최적 솔루션입니다.
-                </p>
-
-                <!-- 상세 스펙 아코디언 토글 (YAMAHA 공식 카탈로그 기준) -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ YAMAHA 공식 상세 스펙</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>대표 기종</th>
-                        <td>YRH10 / YRH10W (와이드 대응)</td>
-                      </tr>
-                      <tr>
-                        <th>실장 능력(UPH/CPH)</th>
-                        <td>웨이퍼 다이 실장: 14,000 UPH<br />SMD 칩 실장: 29,000 CPH</td>
-                      </tr>
-                      <tr>
-                        <th>실장 정밀도</th>
-                        <td>초고정밀 ±15 μm (Cpk ≧ 1.0)</td>
-                      </tr>
-                      <tr>
-                        <th>웨이퍼 대응 크기</th>
-                        <td>6인치 / 8인치 / 최대 12인치(300mm) 웨이퍼 링 공급 대응</td>
-                      </tr>
-                      <tr>
-                        <th>대응 부품 크기</th>
-                        <td>다이: L0.2×W0.2mm ~ L16×W16mm (두께 0.1~0.5mm)<br />SMD: 0201mm ~ L16×W16mm (높이 15mm 이하)</td>
-                      </tr>
-                      <tr>
-                        <th>대응 기판(PCB)</th>
-                        <td>YRH10: L50×W30mm ~ L330×W250mm<br />YRH10W: L50×W60mm ~ L510×W460mm</td>
-                      </tr>
-                      <tr>
-                        <th>피딩 수용 품종</th>
-                        <td>릴 피더 최대 64품종 + 웨이퍼 최대 10품종 동시 수용</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="tags">
-                  <span class="tag">YRH10</span>
-                  <span class="tag">YRH10W</span>
-                  <span class="tag em">14,000 UPH · ±15μm 하이브리드</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- 5. SMD 스마트 스토리지 -->
-            <article class="p-card" data-cat="system">
-              <div class="p-img-box">
-                <span class="p-badge-pos">SMART STORAGE</span>
-                <img src="https://www.genspark.ai/api/files/s/JjsKNekG?token=awYlAOpNg0igVmmQ-FYkbw" alt="SMD 스마트 스토리지 머티리얼 매니지먼트 시스템" />
-              </div>
-              <div class="p-body">
-                <p class="p-cat">AUTO STORAGE</p>
-                <h3>SMD 스마트 스토리지 시스템</h3>
-                <p class="p-desc">
-                  SMT 라인의 부품 입출고 무인화 타워. 릴 단위 바코드 인식으로 셋업 준비 시간을 최소화하고, 습기 민감 부품(MSD)의 유효 잔여 시간을 정밀 제어합니다.
-                </p>
-
-                <!-- 상세 스펙 아코디언 토글 -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ 스마트 스토리지 상세 스펙</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>보관 용량</th>
-                        <td>단일 타워 기준 1,000 ~ 2,000 Reel 이상 (모듈식 증설 가능)</td>
-                      </tr>
-                      <tr>
-                        <th>수용 릴 사양</th>
-                        <td>7인치 / 13인치 / 15인치 테이프 릴 (두께 8mm ~ 56mm), JEDEC 트레이</td>
-                      </tr>
-                      <tr>
-                        <th>입출고 속도</th>
-                        <td>릴당 평균 4 ~ 6초대 초고속 자동 반출 및 다중 배치 출고</td>
-                      </tr>
-                      <tr>
-                        <th>MSD 환경 관리</th>
-                        <td>J-STD-033 규격 준수, 초저습 5% RH 이하 항온·항습 밀폐 제어</td>
-                      </tr>
-                      <tr>
-                        <th>스마트 연동</th>
-                        <td>YAMAHA 라인 소프트웨어, 공장 MES/ERP, AGV 무인 이송차 연계</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="tags">
-                  <span class="tag">자동 입출고</span>
-                  <span class="tag em">MSD 5% RH 초저습</span>
-                  <span class="tag">AGV 연동</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- 6. 무인화 관리 소프트웨어 -->
-            <article class="p-card" data-cat="system">
-              <div class="p-img-box">
-                <span class="p-badge-pos">1 STOP SMART SOLUTION</span>
-                <img src="https://www.genspark.ai/api/files/s/FM8PQVFy?token=awYlAImEFvsz6WNkILvdRw" alt="YAMAHA 1 Stop Smart Solution 인텔리전트 팩토리 IoT 플랫폼" />
-              </div>
-              <div class="p-body">
-                <p class="p-cat">YAMAHA S/W SUITE</p>
-                <h3>무인화 관리 소프트웨어</h3>
-                <p class="p-desc">
-                  YAMAHA의 ‘1 Stop Smart Solution’ 철학을 완성하는 인더스트리 4.0 소프트웨어 제품군. “멈추지 않고, 불량을 만들지 않으며, 사람 손이 가지 않는” 무인 라인을 구현합니다.
-                </p>
-
-                <!-- 상세 스펙 아코디언 토글 -->
-                <div class="spec-accordion">
-                  <button class="spec-trigger" type="button" aria-expanded="false">
-                    <span>⚙️ YAMAHA 솔루션 상세 기능</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="spec-panel">
-                    <table class="spec-table">
-                      <tr>
-                        <th>핵심 개념</th>
-                        <td>YAMAHA ‘1 Stop Smart Solution’ (공장 전 공정 통합 지원)</td>
-                      </tr>
-                      <tr>
-                        <th>3대 실현 목표</th>
-                        <td>“Doesn’t Stop”(무정지) · “Doesn’t Make Defect”(무불량) · “Operator-Free”(무인화)</td>
-                      </tr>
-                      <tr>
-                        <th>라인 관제 모니터링</th>
-                        <td>실시간 OEE 산출, 노즐/피더 상태 진단, M2M 라인 피드백 제어</td>
-                      </tr>
-                      <tr>
-                        <th>데이터 호환 규격</th>
-                        <td>SEMI SMT-ELS, IPC-CFX, SECS/GEM, OPC-UA 등 글로벌 표준 지원</td>
-                      </tr>
-                      <tr>
-                        <th>품질 추적성</th>
-                        <td>PCB 단위 부품 실장 이력, 인쇄·검사 영상 풀 트레이서빌리티(Traceability)</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="tags">
-                  <span class="tag">1 Stop Smart Solution</span>
-                  <span class="tag em">M2M 라인 제어</span>
-                  <span class="tag">SEMI SMT-ELS</span>
-                </div>
-              </div>
-            </article>
+            <div class="lineup-detail" id="lnDetail" role="tabpanel" aria-live="polite"></div>
           </div>
         </div>
       </section>
@@ -2235,7 +2127,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="mailto:yk@yk-co.com">yk@yk-co.com</a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#225b49625b490f414d0c414d4f"><span class="__cf_email__" data-cfemail="51283a11283a7c323e7f323e3c">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2317,7 +2209,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="mailto:0717jhlee@gmail.com">0717jhlee@gmail.com</a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#20101711174a484c454560474d41494c0e434f4d"><span class="__cf_email__" data-cfemail="8ebeb9bfb9e4e6e2ebebcee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2371,9 +2263,14 @@
                     <select id="model" name="관심제품">
                       <option value="미지정">선택해 주세요</option>
                       <option value="표면실장용 마운터">표면실장용 마운터</option>
+                      <option value="YRM20">YRM20 마운터</option>
+                      <option value="YRM20DL">YRM20DL 마운터</option>
+                      <option value="YRM10">YRM10 마운터</option>
                       <option value="스크린 프린터">스크린 프린터</option>
                       <option value="3D AOI 검사기 / SPI">3D AOI 검사기 / SPI</option>
                       <option value="하이브리드 마운터 (YRH10)">하이브리드 마운터 (YRH10)</option>
+                      <option value="하이브리드 플레이서 (YRH10W)">하이브리드 플레이서 (YRH10W)</option>
+                      <option value="YRP10 / YRP10e">프린터 (YRP10 / YRP10e)</option>
                       <option value="SMD 스마트 스토리지">SMD 스마트 스토리지</option>
                       <option value="무인화 관리 소프트웨어">무인화 관리 소프트웨어</option>
                       <option value="라인 구성 전체 상담">라인 구성 전체 상담</option>
@@ -2401,7 +2298,7 @@
                   <span>개인정보 수집 및 이용에 동의합니다. (문의 응대 목적으로만 사용됩니다)</span>
                 </label>
 
-                <button class="form-submit" type="submit">yk@yk-co.com으로 문의 보내기</button>
+                <button class="form-submit" type="submit"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dea7b59ea7b5f3bdb1f0bdb1b3">[email&#160;protected]</a>으로 문의 보내기</button>
               </form>
             </div>
           </div>
@@ -2417,8 +2314,8 @@
             <a href="#top" style="display:inline-block; margin-bottom:18px; text-decoration:none; background:#ffffff; padding:10px 18px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.18);">
               <img src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION" style="height:64px; width:auto; display:block;" />
             </a>
-            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL yk@yk-co.com</p>
-            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL 0717jhlee@gmail.com</p>
+            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="344d5f744d5f19575b1a575b59">[email&#160;protected]</a></p>
+            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ccfcfbfdfba6a4a0a9a98caba1ada5a0e2afa3a1">[email&#160;protected]</a></p>
           </div>
 
           <div class="foot-col">
@@ -2453,7 +2350,7 @@
       </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       /* ---------- 전체메뉴 오버레이 ---------- */
       var menuBtn = document.getElementById('menuBtn');
       var allmenu = document.getElementById('allmenu');
@@ -2516,45 +2413,503 @@
         }
       });
 
-      /* ---------- 제품 카테고리 필터 ---------- */
-      var filterBtns = document.querySelectorAll('.filter-btn');
-      var pCards = document.querySelectorAll('.p-card');
+      /* ---------- 제품 라인업 : 좌측 선택 → 우측 상세 스펙 ---------- */
+      var YK_URL = 'https://www.yk-co.com';
+      var YAM_URL = 'https://global.yamaha-motor.com/business/smt/';
 
-      filterBtns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          filterBtns.forEach(function (b) {
-            b.classList.remove('active');
-          });
-          btn.classList.add('active');
+      var CAT_META = {
+        mounter: { label: 'SURFACE MOUNTER' },
+        printer: { label: 'SOLDER-PASTE PRINTER' },
+        aoi: { label: '3D AOI INSPECTION' },
+        bonder: { label: 'HYBRID PLACER' },
+        system: { label: 'STORAGE & SOFTWARE' }
+      };
 
-          var cat = btn.getAttribute('data-filter');
-          pCards.forEach(function (card) {
-            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      /* ---------- 상세 스펙 아코디언 토글 인터랙션 ---------- */
-      var specTriggers = document.querySelectorAll('.spec-trigger');
-      specTriggers.forEach(function (trigger) {
-        trigger.addEventListener('click', function (e) {
-          e.stopPropagation();
-          var accordion = trigger.closest('.spec-accordion');
-          var isOpen = accordion.classList.contains('open');
-          
-          if (isOpen) {
-            accordion.classList.remove('open');
-            trigger.setAttribute('aria-expanded', 'false');
-          } else {
-            accordion.classList.add('open');
-            trigger.setAttribute('aria-expanded', 'true');
+      var LINEUP = {
+        mounter: [
+          {
+            id: 'yrm20',
+            model: 'YRM20',
+            sub: '프리미엄 고효율 모듈러 마운터',
+            badge: 'PREMIUM MOUNTER',
+            kicker: 'YAMAHA SURFACE MOUNTER',
+            img: 'https://sspark.genspark.ai/i/m9iesCOuMXgXLgMR?width=1024',
+            tagline:
+              '1 Head Solution이 도달한 궁극의 형태. 2-Beam 115,000 CPH의 압도적 생산성과 0201mm 초미세 칩부터 W55×L100mm 대형 부품까지 한 헤드로 대응하는 올라운드 마운터입니다.',
+            stats: [
+              ['115,000', 'CPH · 2-Beam RM'],
+              ['±0.025', 'mm 장착 정밀도'],
+              ['128', '품종 피더 수용']
+            ],
+            specs: [
+              ['헤드 구성', '고속 로터리 RM 헤드(노즐 18) · 고속 범용 인라인 HM 헤드(10) · 이형부품 인라인 FM 헤드(5)'],
+              ['대응 부품 (RM)', '0201mm ~ W12×L12mm, 높이 6.5mm 이하'],
+              ['대응 부품 (HM)', '0201mm ~ W55×L100mm, 높이 15mm 이하'],
+              ['대응 부품 (FM)', '03015mm ~ W55×L100mm, 높이 30mm 이하'],
+              ['실장 능력', 'RM: 2-Beam 115,000 / 1-Beam 57,500 CPH<br>HM: 2-Beam 98,000 / 1-Beam 49,000 CPH<br>FM: 2-Beam 35,000 / 1-Beam 17,500 CPH'],
+              ['실장 정밀도', 'RM·HM ±0.025mm Cpk≧1.0 (고정밀 모드)<br>FM ±0.035mm Cpk≧1.0'],
+              ['부품 종류 수', '피더 캐리지 교환 최대 128품종(8mm 테이프 환산) · 고정 플레이트 최대 128품종 · 트레이 최대 60품종(eATS30×2)'],
+              ['대응 기판', '1-Beam 싱글 레인: L50×W50 ~ L510×W510mm (옵션 L810×W510mm)<br>2-Beam 듀얼 스테이지: 1-PCB L810×W510mm / 2-PCB L380×W510mm'],
+              ['전원', '3상 AC 200/208/220/240/380/400/416V ±10% 50/60Hz'],
+              ['공기압', '0.45MPa 이상, 청정·건조 상태'],
+              ['외형 치수', 'L1,374 × W1,948 × H1,445mm (돌기부 제외)'],
+              ['질량', '2-Beam 약 2,250kg / 1-Beam 약 2,150kg (본체만)']
+            ],
+            feats: [
+              'RM·HM·FM 3종 헤드를 조합해 칩 고속 실장과 중대형 부품 유연 대응을 동시에 실현',
+              '듀얼 스테이지로 1레인 구성에서도 2-PCB 동시 생산 및 최대 L810mm 장척 기판 대응',
+              'ALF(자동 로딩 피더)·경량 ZS 피더·무정지 피더 교환 캐리지로 셋업 시간 단축',
+              'SEMI SMT-ELS 대응(옵션) — 타사기와 Auto Program Change-Over 연동'
+            ],
+            note: 'SEMI SMT-ELS 통신 및 옵션 사양은 별도 구성입니다. 기판 조건에 맞는 최적 헤드 조합은 YK코퍼레이션 엔지니어가 제안합니다.'
+          },
+          {
+            id: 'yrm20dl',
+            model: 'YRM20DL',
+            sub: '슈퍼 고효율 듀얼레인 모듈러 마운터',
+            badge: 'DUAL LANE MOUNTER',
+            kicker: 'YAMAHA SURFACE MOUNTER',
+            img: 'https://sspark.genspark.ai/i/hJ8UX42c1yHHtjQR?width=1024',
+            tagline:
+              '같은 바닥 면적에서 생산성을 두 배로. 120,000 CPH 듀얼 레인과 ±0.015mm 정밀도로 가변 품종·가변 물량 생산에 최적화된 프리미엄 듀얼레인 마운터입니다.',
+            stats: [
+              ['120,000', 'CPH · 듀얼 레인'],
+              ['±0.015', 'mm 장착 정밀도'],
+              ['W330', 'mm 듀얼 반송 폭']
+            ],
+            specs: [
+              ['헤드 구성', '고속 로터리 RM 헤드(노즐 18) · 인라인 HM 헤드(10) · 이형부품 FM 헤드(5)'],
+              ['실장 능력', 'RM 120,000 CPH · HM 100,000 CPH (고생산 모드)<br>FM 35,000 CPH'],
+              ['실장 정밀도', 'RM·HM ±0.015mm Cpk≧1.0 (고정밀 모드)<br>FM ±0.035mm Cpk≧1.0'],
+              ['대응 부품', 'RM 0201mm ~ W12×L12mm (H6.5mm 이하)<br>HM 0201mm ~ W55×L100mm (H15mm 이하)<br>FM 03015mm ~ W55×L100mm (H30mm 이하)'],
+              ['대응 기판', '싱글 사용: L50×W50 ~ L810×W610mm<br>듀얼 사용: L50×W50 ~ L810×W330mm'],
+              ['부품 종류 수', '피더 캐리지 최대 128품종(8mm 환산) · 트레이 최대 60품종(eATS30×2)'],
+              ['전원', '3상 AC 200/208/220/240/380/400/416V ±10% 50/60Hz'],
+              ['공기압', '0.45MPa 이상, 청정·건조 상태'],
+              ['외형 치수', 'L1,374 × W2,102 × H1,445mm (돌기부 제외)'],
+              ['질량', '약 2,550kg (본체만)']
+            ],
+            feats: [
+              'Parallel / Alternate / Hybrid 3가지 듀얼 레인 모드로 품종·물량 변화에 유연 대응',
+              '자동 푸시업 핀 교환 시스템과 자동 노즐 스테이션으로 전환 시간 최소화',
+              'PCB 높이 측정 기반 장착 높이 제어 + 저정하중 노즐로 초미세 부품 충격 억제',
+              '자동차 패키징 사양(전·후방 신호타워 개별 제어, 안전 카테고리 3 등) 대응'
+            ],
+            note: '듀얼 레인 운용 방식과 기판 폭 조합은 생산 품종 수와 택트 타임에 따라 달라집니다. 라인 시뮬레이션은 YK코퍼레이션에 문의하세요.'
+          },
+          {
+            id: 'yrm10',
+            model: 'YRM10',
+            sub: '컴팩트 고속 모듈러 마운터',
+            badge: 'COMPACT MOUNTER',
+            kicker: 'YAMAHA SURFACE MOUNTER',
+            img: 'https://sspark.genspark.ai/i/fTMAfiBQgDsxH8sg?width=1024',
+            tagline:
+              '“딱 맞는” 크기의 다목적 고속기. 52,000 CPH 단일 헤드로 0201mm부터 L100×W55mm까지 대응하며, 1,254mm 폭의 컴팩트 바디로 면적당 생산성이 뛰어난 경제형 모델입니다.',
+            stats: [
+              ['52,000', 'CPH · 1-Beam'],
+              ['±0.035', 'mm 장착 정밀도'],
+              ['96', '품종 릴 피더']
+            ],
+            specs: [
+              ['대응 기판', 'L50×W50 ~ L510×W460mm (옵션 최대 L950mm)'],
+              ['대응 부품', '0201mm ~ L100×W55mm, 높이 15mm 이하'],
+              ['실장 능력', '52,000 CPH (최적 조건)'],
+              ['실장 정밀도', '±0.035mm Cpk≧1.0 (최적 조건)'],
+              ['부품 종류 수', '릴 부품 최대 96품종(8mm 테이프 환산) · 트레이 15품종(sATS15R 장착 시)'],
+              ['헤드', '고속 다목적 인라인 헤드 (스캔 카메라 탑재)'],
+              ['전원', '3상 AC 200/208/220/240/380/400/416V ±10% 50/60Hz'],
+              ['공기압', '0.45MPa 이상, 청정·건조 상태'],
+              ['외형 치수', 'L1,254 × W1,440 × H1,445mm'],
+              ['질량', '약 1,230kg (본체만)']
+            ],
+            feats: [
+              '스캔 카메라로 헤드 이동을 최소화해 실장 능력 52,000 CPH 확보',
+              '사이드뷰 카메라로 칩 들뜸·역삽입 검출, 사이드 조명으로 BGA 불량 방지',
+              '코플래너리티 체커로 트레이 부품 리드 휨 검출',
+              '노즐 자동 세정 + 노즐 개별 ID 관리, 원터치 홀더 교체로 셋업 간소화',
+              'SEMI SMT-ELS 대응(옵션)'
+            ],
+            note: '소량 다품종 라인의 첫 마운터로 가장 많이 선택되는 모델입니다. 기판 최대 사이즈 옵션은 별도 상담이 필요합니다.'
           }
+        ],
+        printer: [
+          {
+            id: 'yrp10',
+            model: 'YRP10',
+            sub: '프리미엄 스크린 프린터',
+            badge: 'PREMIUM PRINTER',
+            kicker: 'YAMAHA SOLDER-PASTE PRINTER',
+            img: 'https://sspark.genspark.ai/i/wDhO1XfbeJiF7pnz?width=1024',
+            tagline:
+              '완전 자동 셋업과 모델 교체를 실현하는 고속·고품질 프린터. 받는 각도 가변 3S 헤드와 ±16µm 인쇄 정밀도, 6초 코어 사이클로 무인 연속 인쇄를 구현합니다.',
+            stats: [
+              ['6.0', '초 코어 사이클'],
+              ['±16', 'µm 인쇄 정밀도'],
+              ['3S', '스윙 싱글 스퀴지 헤드']
+            ],
+            specs: [
+              ['인쇄 헤드', '3S 헤드 (Swing Single Squeegee, 받는 각도 가변)'],
+              ['인쇄 정밀도', '위치 반복 정밀도(±6σ) ±8µm Cp≧2.0<br>인쇄 정밀도(μ±6σ) ±16µm Cpk≧2.0 (CeTaQ 측정)'],
+              ['코어 사이클 타임', '6초 (인쇄 시간 제외)'],
+              ['대응 기판', '싱글 레인 L50×W50 ~ L510×W510mm (옵션 최대 L650×W510mm)<br>듀얼 레인 L50×W50 ~ L420×W330mm'],
+              ['대응 스텐실', 'L750×W750 · L736×W736(29") · L750×W650 · L650×W550 · L600×W550 · L550×W650 · L584×W584(23")mm'],
+              ['전원', '단상 AC 200~230V ±20V'],
+              ['공기압', '0.45MPa 이상'],
+              ['외형 치수', '싱글 레인 L1,640×W1,840×H1,525mm<br>듀얼 레인 L3,560×W2,300×H1,525mm'],
+              ['질량', '프린터 약 1,710kg · 트래버스 컨베이어 약 450kg']
+            ],
+            feats: [
+              '다음 모델 스텐실 예약만으로 스텐실·푸시업 핀이 자동 교체되어 셋업 인원 불필요',
+              '12oz 솔더 시린지로 8시간 무정지 급납, 솔더 폭 상시 감시로 인쇄 품질 안정',
+              '내장 SPI 클로즈드 루프 — 검사 결과로 2회 인쇄·스텐실 클리닝 자동 실행',
+              '진공 스텐실 척 + SPI 연동 자동 위치 보정으로 고밀도 인쇄 대응',
+              '싱글·듀얼 레인 모두 대응하는 유연한 라인 구성'
+            ],
+            note: '듀얼 레인 사양은 트래버스 컨베이어가 추가되며 설치 공간이 크게 늘어납니다. 현장 치수 검토가 필요합니다.'
+          },
+          {
+            id: 'yrp10e',
+            model: 'YRP10e',
+            sub: '솔더페이스트 프린터',
+            badge: 'PRINTER',
+            kicker: 'YAMAHA SOLDER-PASTE PRINTER',
+            img: 'https://sspark.genspark.ai/i/Mes7gRqOQf2bOCKv?width=1024',
+            tagline:
+              '범용성과 다기능으로 고품질 인쇄를 실현하는 싱글 레인 프린터. ±30µm 인쇄 정밀도와 6.0초 코어 사이클로 안정적인 양산 품질을 제공합니다.',
+            stats: [
+              ['6.0', '초 코어 사이클'],
+              ['±30', 'µm 인쇄 정밀도'],
+              ['싱글', '레인 전용']
+            ],
+            specs: [
+              ['인쇄 정밀도', 'μ±6σ ±30µm Cpk≧2.0 (CeTaQ·최적 조건)'],
+              ['대응 기판', 'L50×W50 ~ L510×W510mm'],
+              ['코어 사이클 타임', '6.0초 (인쇄 시간 제외)'],
+              ['대응 스텐실', '750×750 · 750×650 · 736×736 · 650×550 · 600×550 · 584×584 · 550×650mm'],
+              ['인쇄 헤드', '받는 각도 가변 3S 헤드 · 3SR 스퀴지 · 베리롤 모션'],
+              ['전원', '단상 AC 200/208/220/230V ±20V 50/60Hz'],
+              ['공기압', '0.45MPa 이상, 청정·건조 상태'],
+              ['외형 치수', 'L1,640 × W1,840 × H1,525mm'],
+              ['질량', '약 1,710kg (본체만)']
+            ],
+            feats: [
+              '받는 각도 가변 3S 헤드 + 3SR 스퀴지로 인쇄 조건 범위 확대',
+              '베리롤 모션으로 솔더 비산·들뜸·경시 변화 억제',
+              '3분할 컨베이어로 반송 시간 최소화, 반송 중 클리닝 병행으로 실질 생산성 향상',
+              '로드셀 스퀴지 압력 측정·피드백으로 편차 저감',
+              '유니버설 스텐실 홀더 원터치 교체, 그래픽 레이어 얼라인먼트로 숙련도 불필요',
+              '내장 2D 검사 피드백으로 자동 재인쇄·클리닝, SPI 연동 위치 보정'
+            ],
+            note: '듀얼 레인이 필요 없다면 YRP10e가 합리적인 선택입니다. 스텐실·솔더 사양에 따른 최적 조건은 상담으로 안내합니다.'
+          }
+        ],
+        aoi: [
+          {
+            id: 'yriv',
+            model: 'YRi-V',
+            sub: '3D 하이브리드 광학검사기',
+            badge: '3D AOI / SPI',
+            kicker: 'YAMAHA INSPECTION SYSTEM',
+            img: 'https://sspark.genspark.ai/i/meG4b9zlzjeLyqfy?width=1024',
+            tagline:
+              '56.8cm²/s 초고속 3D 검사와 8방향 프로젝터를 갖춘 3D 하이브리드 광학검사기. 동축 조명과 5µm 렌즈로 0201mm 미세 부품부터 WLCSP 크랙까지 사각지대 없이 검출합니다.',
+            stats: [
+              ['56.8', 'cm²/s 3D 검사'],
+              ['5', 'µm 최고 해상도'],
+              ['25', 'mm 3D 측정 높이']
+            ],
+            specs: [
+              ['모델', 'YRi-V / YRi-V TypeHS'],
+              ['카메라 화소수', '12 Megapixels / 25 Megapixels (TypeHS)<br>4방향 경사 카메라 20 Megapixels'],
+              ['광학 해상도', '12µm / 7µm / 5µm (동축 조명 탑재)<br>TypeHS: 7µm / 5µm'],
+              ['3D 검사 속도', 'YRi-V: 56.8cm²/s(12µm) · 19.6cm²/s(7µm) · 10.1cm²/s(5µm)<br>TypeHS: 30.5cm²/s(7µm) · 16.2cm²/s(5µm)'],
+              ['3D 프로젝터', '8-way (4방향 + 4방향) / 4-way 프로젝터'],
+              ['3D 측정 높이', '최대 25mm'],
+              ['대응 기판', 'L50×W50 ~ L610×W610mm (장척 옵션 L760mm)'],
+              ['반송 가능 PCB 높이', '상면 45mm / 하면 85mm'],
+              ['전원', 'YRi-V: 3상 AC 200~416V ±10% 50/60Hz<br>TypeHS: 단상 AC 200~230V ±20V 50/60Hz'],
+              ['공기압', '0.45MPa 이상, 청정·건조 상태'],
+              ['외형 치수 / 질량', 'L1,252 × W1,497 × H1,614mm / YRi-V 1,480kg · TypeHS 1,430kg'],
+              ['레이저 등급', 'Class 1 Laser Product (IEC60825-1, FDA CDRH Part 1040.10)']
+            ],
+            feats: [
+              '8방향(4+4) 프로젝터로 협소 인접 영역까지 고정밀 3D 형상 측정',
+              '4각 카메라로 경사면·측면 전극 검사, 리드 들뜸·필렛 형상 확인',
+              '동축 조명 5µm 렌즈로 디바이스·WLCSP 크랙 등 고정밀 검사 대응',
+              '마운터 데이터·CAD 자동 검사 데이터 변환 및 마운터 피드백 제어',
+              '12MP 고속 모드로 양산 택트 타임에 맞춘 검사 속도 선택'
+            ],
+            note: 'Laser Class 1 제품이지만 운용 시 안전 지침을 준수해야 합니다. 검사 프로그램 이관·최적화는 YK코퍼레이션이 지원합니다.'
+          }
+        ],
+        bonder: [
+          {
+            id: 'yrh10',
+            model: 'YRH10',
+            sub: '하이브리드 플레이서 (다이 + SMD)',
+            badge: 'HYBRID PLACER',
+            kicker: 'YAMAHA HYBRID PLACER',
+            img: 'https://sspark.genspark.ai/i/XRzNuSOGqcL6hE6K?width=1024',
+            tagline:
+              '반도체 베어 다이와 SMD 칩을 1대에서. 14,000 UPH 다이 실장과 29,000 CPH 칩 실장, ±15µm 정밀도로 SiP·첨단 패키징 모듈 생산에 최적입니다.',
+            stats: [
+              ['14,000', 'UPH 다이 실장'],
+              ['29,000', 'CPH 칩 실장'],
+              ['±15', 'µm 장착 정밀도']
+            ],
+            specs: [
+              ['다이 크기', 'L0.2×W0.2mm ~ L16×W16mm'],
+              ['다이 두께', '0.1 ~ 0.5mm'],
+              ['웨이퍼 대응', '6인치 / 8인치'],
+              ['SMD 부품', '0201mm ~ L16×W16mm, 높이 15mm 이하 (멀티 카메라 장착 시)<br>테이프 폭 8 ~ 104mm'],
+              ['실장 능력', '웨이퍼 다이 14,000 UPH · 칩 29,000 CPH (최적 조건)'],
+              ['실장 정밀도', '±15µm Cpk≧1.0'],
+              ['부품 종류 수', '릴 최대 48품종 + 웨이퍼 최대 10품종'],
+              ['대응 기판', 'L50×W30mm ~ L330×W250mm'],
+              ['기판 두께 / 최대 반송 하중', '0.1 ~ 4.0mm / 1kg'],
+              ['전원 / 공기압', '3상 AC 200~416V ±10% 50/60Hz / 0.45MPa 이상'],
+              ['외형 치수 / 질량', 'L1,252 × W1,962 × H1,853mm / 약 1,560kg']
+            ],
+            feats: [
+              '다이·SMD 혼합 실장으로 설비 대수와 바닥 면적을 동시에 절감',
+              '로드셀 기반 가해 하중 관리로 다이 손상 리스크 저감',
+              '셋업 작업 간소화로 운용자 부담 감소',
+              'SECS/GEM 통신 대응 (커스텀 오더)'
+            ],
+            note: '다이 어태치 공정 조건(접착제·본딩 방식)에 따라 구성이 달라집니다. 적용 검토는 YK코퍼레이션과 진행하세요.'
+          },
+          {
+            id: 'yrh10w',
+            model: 'YRH10W',
+            sub: '와이드 하이브리드 플레이서 (12인치)',
+            badge: 'HYBRID PLACER WIDE',
+            kicker: 'YAMAHA HYBRID PLACER',
+            img: 'https://sspark.genspark.ai/i/XRzNuSOGqcL6hE6K?width=1024',
+            tagline:
+              '12인치 웨이퍼와 대형 기판까지 대응하는 와이드 하이브리드 플레이서. 릴 64품종 + 웨이퍼 10품종을 동시 수용하고 최대 20mm 두께·10kg 기판을 반송합니다.',
+            stats: [
+              ['12', '인치 웨이퍼 대응'],
+              ['64', '품종 릴 피더'],
+              ['10', 'kg 최대 반송 하중']
+            ],
+            specs: [
+              ['다이 크기', 'L0.35×W0.35mm ~ L16×W16mm'],
+              ['다이 두께', '0.1 ~ 0.5mm'],
+              ['웨이퍼 대응', '6인치 / 8인치 / 12인치'],
+              ['SMD 부품', '0201mm ~ L16×W16mm, 높이 15mm 이하 (멀티 카메라 장착 시)<br>테이프 폭 8 ~ 104mm'],
+              ['실장 능력', '웨이퍼 다이 14,000 UPH · 칩 29,000 CPH (최적 조건)'],
+              ['실장 정밀도', '±15µm Cpk≧1.0'],
+              ['부품 종류 수', '릴 최대 64품종 + 웨이퍼 최대 10품종'],
+              ['대응 기판', 'L50×W60mm ~ L510×W460mm'],
+              ['기판 두께 / 최대 반송 하중', '0.8 ~ 20.0mm / 10kg'],
+              ['전원 / 공기압', '3상 AC 200~416V ±10% 50/60Hz / 0.45MPa 이상'],
+              ['외형 치수 / 질량', 'L1,374 × W2,602 × H1,849mm / 약 2,635kg']
+            ],
+            feats: [
+              '12인치(300mm) 웨이퍼 링 공급 대응으로 단위 면적당 다이 수 확대',
+              '최대 W510×L460mm 기판, 20mm 두께·10kg 반송으로 파워 모듈·대형 패키지 대응',
+              '릴 64품종 + 웨이퍼 10품종 동시 수용으로 다품종 모듈 생산 최적화',
+              '다이·SMD 혼합 실장 + 로드셀 하중 관리'
+            ],
+            note: '대형·후중 기판 반송 사양은 컨베이어 구성과 함께 검토해야 합니다.'
+          }
+        ],
+        system: [
+          {
+            id: 'storage',
+            model: 'SMD 스마트 릴 랙',
+            sub: '부품 보관·입출고 스마트 랙 시스템',
+            badge: 'SMART REEL RACK',
+            kicker: 'MATERIAL STORAGE SYSTEM',
+            line: 'SMT STORAGE',
+            media: 'dark',
+            src: '공급 사양 기준 · 모델별 구성',
+            cta: {
+              label: '킨텐(KinTN) 제품 페이지에서 보기',
+              url: 'https://www.kintn.com/en/index.html'
+            },
+            img: 'https://www.genspark.ai/api/files/s/JjsKNekG?token=awYlAOpNg0igVmmQ-FYkbw',
+            tagline:
+              '릴 단위로 부품을 보관·관리하는 스마트 릴 랙. 감지식(Inductive) 모델은 릴 장착 여부와 위치를 자동 인식해 재고를 실시간으로 파악하고, 7인치 양면 최대 1,600개·13인치 양면 500개까지 수납합니다.',
+            stats: [
+              ['1,600', '위치 · 7인치 양면'],
+              ['500', '위치 · 13인치 양면'],
+              ['510', '위치 · 모바일 카트']
+            ],
+            specs: [
+              ['시리즈', 'Smart Inductive SMD2S (감지식) · Smart Non-inductive SMD2N (비감지식)'],
+              ['SMD2S-A8 / SMD2N-A8', '7인치 릴 랙 · 양면 · 1,600 보관 위치'],
+              ['SMD2S-BS5', '13인치 릴 랙 · 단면 · 250 보관 위치'],
+              ['SMD2S-BD5 / SMD2N-B5', '13인치 릴 랙 · 양면 · 500 보관 위치'],
+              ['SMDC2S / SMDC2N', '스마트 모바일 카트 · 510 보관 위치 (라인 간 이동형)'],
+              ['SMD2', '보관 위치·랙 구성·치수 맞춤 제작 (커스터마이징)'],
+              ['감지 방식', 'Inductive: 릴 장착 여부·위치를 센서로 자동 감지<br>Non-inductive: 위치 표시와 관리 소프트웨어 기반 운용'],
+              ['정전기 보호', '부품 보호를 위한 ESD 대응 구성'],
+              ['연동', 'MES/ERP, AGV 무인 이송차 연계'],
+              ['설치 형태', '독립 랙 · 라인 옆 대기 랙 · 모바일 카트 조합']
+            ],
+            feats: [
+              '감지식 랙으로 릴 장착 상태를 자동 인식해 재고 파악·피킹 오류 감소',
+              '7인치 1,600위치 대용량부터 13인치 500위치까지 부품 구성에 맞춰 선택',
+              '모바일 카트(SMDC2S/2N)로 라인과 랙 사이 부품 운반 동선 단축',
+              'MES/ERP·AGV 연계로 부품 공급 이력과 재고를 시스템에서 통합 관리',
+              'SMD2 커스텀 모델로 보관 위치·치수를 현장에 맞춰 제작'
+            ],
+            note: '보관 위치 수와 랙 구성은 부품 릴 규격(7"/13")과 회전율에 맞춰 선정합니다. 감지식·비감지식 모델의 적용 검토와 견적은 YK코퍼레이션으로 문의하세요.'
+          },
+          {
+            id: 'software',
+            model: '무인화 관리 SW',
+            sub: 'YSUP · 1 Stop Smart Solution',
+            badge: '1 STOP SMART SOLUTION',
+            kicker: 'YAMAHA SOFTWARE SUITE',
+            line: 'YAMAHA SOFTWARE',
+            media: 'dark',
+            img: 'https://www.genspark.ai/api/files/s/FM8PQVFy?token=awYlAImEFvsz6WNkILvdRw',
+            tagline:
+              'YAMAHA ‘1 Stop Smart Solution’을 완성하는 인더스트리 4.0 소프트웨어 제품군. 멈추지 않고, 불량을 만들지 않으며, 사람 손이 가지 않는 라인을 데이터로 구현합니다.',
+            stats: [
+              ['OEE', '실시간 가동률 산출'],
+              ['M2M', '라인 피드백 제어'],
+              ['SEMI', 'SMT-ELS · IPC-CFX']
+            ],
+            specs: [
+              ['핵심 개념', 'YAMAHA ‘1 Stop Smart Solution’ (공장 전 공정 통합 지원)'],
+              ['3대 목표', 'Doesn’t Stop(무정지) · Doesn’t Make Defect(무불량) · Operator-Free(무인화)'],
+              ['라인 관제', '실시간 OEE 산출, 노즐·피더 상태 진단, M2M 라인 피드백 제어'],
+              ['표준 규격', 'SEMI SMT-ELS, IPC-CFX, SECS/GEM, OPC-UA 등'],
+              ['품질 추적성', 'PCB 단위 실장 이력, 인쇄·검사 데이터 풀 트레이서빌리티'],
+              ['적용 범위', '마운터·프린터·검사기·스토리지 및 타사 설비 연동']
+            ],
+            feats: [
+              '설비 상태·생산 실적을 한 화면에서 확인하고 이상 징후를 즉시 감지',
+              'Auto Program Change-Over 등 차종·품종 전환 자동화',
+              '부품 잔량 예측·보충 알림으로 무정지 운전 지원',
+              '품질 데이터 축적으로 수율 개선과 라인 최적화 근거 확보'
+            ],
+            note: '소프트웨어 구성과 라이선스 범위는 라인 규모에 따라 달라집니다. 도입 전 현장 데이터 환경 진단을 권장합니다.'
+          }
+        ]
+      };
+
+      var lnList = document.getElementById('lnList');
+      var lnDetail = document.getElementById('lnDetail');
+      var lnCatLabel = document.getElementById('lnCatLabel');
+      var lnTabs = document.querySelectorAll('.ln-tab');
+
+      function findItem(cat, id) {
+        var arr = LINEUP[cat] || [];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i].id === id) return arr[i];
+        }
+        return null;
+      }
+
+      function renderList(cat, activeId) {
+        var arr = LINEUP[cat] || [];
+        lnCatLabel.textContent = CAT_META[cat].label;
+        lnList.innerHTML = arr
+          .map(function (it) {
+            var on = it.id === activeId ? ' active' : '';
+            var sel = it.id === activeId ? 'true' : 'false';
+            return (
+              '<button class="ln-item' + on + '" type="button" role="tab" aria-selected="' + sel + '" data-id="' + it.id + '">' +
+              '<span class="ln-model">' + it.model + '</span>' +
+              '<span class="ln-sub">' + it.sub + '</span>' +
+              '</button>'
+            );
+          })
+          .join('');
+      }
+
+      function renderDetail(it) {
+        var stats = it.stats
+          .map(function (s) {
+            return '<div class="dt-stat"><b>' + s[0] + '</b><span>' + s[1] + '</span></div>';
+          })
+          .join('');
+        var rows = it.specs
+          .map(function (r) {
+            return '<tr><th>' + r[0] + '</th><td>' + r[1] + '</td></tr>';
+          })
+          .join('');
+        var feats = it.feats
+          .map(function (f) {
+            return '<li>' + f + '</li>';
+          })
+          .join('');
+
+        lnDetail.innerHTML =
+          '<div class="dt-anim">' +
+            '<div class="dt-top">' +
+              '<div class="dt-media' + (it.media === 'dark' ? ' is-dark' : '') + '">' +
+                '<span class="dt-badge">' + it.badge + '</span>' +
+                '<img src="' + it.img + '" alt="YAMAHA ' + it.model + ' ' + it.sub + '" loading="lazy" />' +
+                '<span class="dt-serial">' + (it.line || 'YAMAHA SMT · ' + it.id.toUpperCase()) + '</span>' +
+              '</div>' +
+              '<div class="dt-intro">' +
+                '<p class="dt-kicker">' + it.kicker + '</p>' +
+                '<h3 class="dt-title">' + it.model + '<small>' + it.sub + '</small></h3>' +
+                '<p class="dt-tag">' + it.tagline + '</p>' +
+                '<div class="dt-stats">' + stats + '</div>' +
+                '<div class="dt-actions">' +
+                  '<a class="btn btn-primary" href="' + (it.cta && it.cta.url ? it.cta.url : YAM_URL) + '" target="_blank" rel="noopener">' + (it.cta && it.cta.label ? it.cta.label : '야마하 홈페이지에서 상세보기') + ' ↗</a>' +
+                  '<a class="btn btn-ghost" href="#contact">도입 상담</a>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="dt-body">' +
+              '<div class="dt-sec">' +
+                '<h4>상세 사양 <span class="dt-src">' + (it.src || 'YAMAHA 공식 카탈로그 기준') + '</span></h4>' +
+                '<table class="dt-table">' + rows + '</table>' +
+              '</div>' +
+              '<div class="dt-sec">' +
+                '<h4>주요 특징</h4>' +
+                '<ul class="dt-feat">' + feats + '</ul>' +
+              '</div>' +
+              '<p class="dt-note"><strong>안내</strong> ' + it.note + '<br>사양 및 외관은 예고 없이 변경될 수 있습니다. 정확한 사양·견적은 <a href="' + YK_URL + '" target="_blank" rel="noopener">YK코퍼레이션</a>으로 문의하세요.</p>' +
+            '</div>' +
+          '</div>';
+      }
+
+      function selectItem(cat, id, scrollIntoView) {
+        var it = findItem(cat, id);
+        if (!it) return;
+        lnTabs.forEach(function (t) {
+          var on = t.getAttribute('data-cat') === cat;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
         });
-      });
+        renderList(cat, id);
+        renderDetail(it);
+        if (scrollIntoView) {
+          var item = lnList.querySelector('.ln-item.active');
+          if (item && item.scrollIntoView) {
+            item.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          }
+        }
+      }
+
+      if (lnList && lnDetail) {
+        lnTabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            var cat = tab.getAttribute('data-cat');
+            var first = (LINEUP[cat] || [])[0];
+            if (first) selectItem(cat, first.id, false);
+          });
+        });
+
+        lnList.addEventListener('click', function (e) {
+          var btn = e.target.closest('.ln-item');
+          if (!btn) return;
+          var activeTab = document.querySelector('.ln-tab.active');
+          var cat = activeTab ? activeTab.getAttribute('data-cat') : 'mounter';
+          selectItem(cat, btn.getAttribute('data-id'), false);
+        });
+
+        selectItem('mounter', 'yrm20', false);
+      }
 
       /* ---------- 문의 보내기 폼 메일 연동 스크립트 ---------- */
       var contactForm = document.getElementById('contactForm');
@@ -2585,6 +2940,7 @@
       }
     </script>
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
