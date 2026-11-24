@@ -336,51 +336,98 @@
         font-weight: 700;
       }
 
-      /* ============ HERO ============ */
+      /* ============ HERO (라인업 사진 = 섹션 배경) ============ */
       .hero {
         position: relative;
         margin-top: 100px;
-        min-height: 520px;
-        display: flex;
-        align-items: center;
+        aspect-ratio: 1000 / 510;
+        min-height: 460px;
         overflow: hidden;
-        background: var(--navy);
+        background-color: #ffffff;
+        background-image: url('https://sspark.genspark.ai/i/7Z4vSTm2idHfzs2U?width=1600');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
         color: #fff;
       }
-      .hero-media {
+      /* 배경 사진 '위'에 글씨를 얹고, 좌측은 진하게 우측은 투명하게 옅어지는 스크림으로 가독성 확보 */
+      .hero::before {
+        content: '';
         position: absolute;
         inset: 0;
-        z-index: 0;
-      }
-      .hero-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center right;
-        display: block;
-      }
-      .hero-shade {
-        position: absolute;
-        inset: 0;
+        z-index: 1;
+        pointer-events: none;
         background:
-          linear-gradient(90deg, rgba(9, 22, 43, 0.92) 0%, rgba(9, 22, 43, 0.78) 42%, rgba(9, 22, 43, 0.25) 75%, rgba(9, 22, 43, 0.1) 100%),
-          radial-gradient(ellipse at 85% 50%, rgba(18, 135, 196, 0.18) 0%, rgba(9, 22, 43, 0) 65%);
+          linear-gradient(
+            100deg,
+            rgba(8, 23, 43, 0.92) 0%,
+            rgba(8, 23, 43, 0.86) 17%,
+            rgba(8, 23, 43, 0.6) 33%,
+            rgba(8, 23, 43, 0.2) 45%,
+            rgba(8, 23, 43, 0) 56%
+          ),
+          linear-gradient(180deg, rgba(8, 23, 43, 0.16) 0%, rgba(8, 23, 43, 0) 30%);
       }
       .hero-inner {
-        position: relative;
+        position: absolute;
+        inset: 0;
         z-index: 2;
+        display: flex;
+        align-items: center;
+      }
+      .hero-inner > .container {
         width: 100%;
-        padding: 68px 0 64px;
+      }
+      .hero-grid {
+        display: block;
+      }
+      /* 글씨는 배경 사진 위에 바로 얹힘 (사진은 섹션 전체를 잘림 없이 채움) */
+      .hero-copy {
+        width: 46%;
+        max-width: 500px;
+      }
+      .hero-copy .btn {
+        font-size: 14px;
+        padding: 14px 24px;
+        border-radius: 9px;
+      }
+      .hero-copy .btn-ghost {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        color: #fff;
+      }
+      .hero-copy .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #fff;
+        color: #fff;
+      }
+      .hero-visual {
+        display: none;
+      }
+      .hero-visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
+      .hero-visual figcaption {
+        margin: 10px 4px 2px;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #6b7a90;
+        text-align: center;
       }
       .hero-eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 12.5px;
+        font-size: clamp(9px, 0.66vw, 11px);
         font-weight: 800;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.09em;
         color: #8fd3f4;
-        margin: 0 0 22px;
+        margin: 0 0 14px;
+        white-space: nowrap;
       }
       .hero-eyebrow::before {
         content: '';
@@ -390,23 +437,24 @@
         display: block;
       }
       .hero h1 {
-        font-size: clamp(30px, 4.2vw, 52px);
-        line-height: 1.3;
+        font-size: clamp(23px, 2.2vw, 38px);
+        line-height: 1.34;
         letter-spacing: -0.035em;
         font-weight: 800;
-        margin: 0 0 24px;
-        max-width: 900px;
+        color: #fff;
+        margin: 0 0 16px;
+        text-shadow: 0 2px 22px rgba(4, 14, 28, 0.45);
       }
       .hero h1 em {
         font-style: normal;
         color: var(--emerald-l);
       }
       .hero-sub {
-        font-size: 16.5px;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.82);
-        max-width: 620px;
-        margin: 0 0 36px;
+        font-size: clamp(12.5px, 0.95vw, 15px);
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.86);
+        max-width: 500px;
+        margin: 0 0 22px;
       }
       .hero-cta {
         display: flex;
@@ -1026,670 +1074,70 @@
         color: var(--navy);
       }
 
-      @media (max-width: 1080px) {
-        .lineup {
-          grid-template-columns: 1fr;
-          gap: 20px;
+      @media (max-width: 1359px) {
+        .hero {
+          aspect-ratio: auto;
+          min-height: 0;
+          display: block;
+          padding: 30px 0 34px;
+          background-image:
+            radial-gradient(ellipse at 88% 12%, rgba(18, 135, 196, 0.22) 0%, rgba(9, 22, 43, 0) 62%),
+            linear-gradient(115deg, #0b1f3d 0%, #0f284e 52%, #12315c 100%);
+          color: #fff;
         }
-        .ln-nav {
+        .hero::before {
+          display: none;
+        }
+        .hero-inner {
           position: static;
-          padding: 16px 16px 14px;
+          display: block;
         }
-        .ln-tabs {
-          margin: 12px 0 14px;
-          padding-bottom: 12px;
-        }
-        .ln-list {
+        .hero-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 8px;
-          min-height: 0;
-        }
-        .ln-item {
-          min-width: 0;
-        }
-        .ln-hint {
-          margin-top: 12px;
-        }
-        .dt-top {
           grid-template-columns: 1fr;
+          gap: 22px;
         }
-        .dt-media {
-          border-right: 0;
-          border-bottom: 1px solid var(--line);
-          min-height: 250px;
-          padding: 34px 24px;
+        .hero-copy {
+          width: auto;
+          max-width: none;
         }
-        .dt-media img {
-          max-height: 210px;
+        .hero-copy .btn-ghost {
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.42);
+          color: #fff;
         }
-        .lineup-detail {
-          min-height: 0;
+        .hero-copy .btn-ghost:hover {
+          background: rgba(255, 255, 255, 0.18);
+          color: #fff;
+          border-color: #fff;
         }
-      }
-
-        .dt-intro,
-        .dt-body {
-          padding-left: 20px;
-          padding-right: 20px;
+        .hero h1 {
+          color: #fff;
         }
-        .dt-title {
-          font-size: 23px;
+        .hero h1 em {
+          color: var(--emerald-l);
         }
-        .dt-stats {
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 6px;
+        .hero-eyebrow {
+          color: #8fd3f4;
         }
-        .dt-stat b {
-          font-size: 14px;
+        .hero-sub {
+          color: rgba(255, 255, 255, 0.85);
         }
-        ul.dt-feat {
-          grid-template-columns: 1fr;
-        }
-        .dt-table th {
-          width: 38%;
-        }
-        .dt-table th,
-        .dt-table td {
-          font-size: 12px;
-          padding-top: 9px;
-          padding-bottom: 9px;
-        }
-        .dt-actions .btn {
-          flex: 1 1 100%;
-          justify-content: center;
+        .hero-visual {
+          display: block;
+          margin: 0;
+          padding: 10px;
+          background: #fff;
+          border-radius: 14px;
         }
       }
 
-      /* ============ 솔루션 ============ */
-      .sol-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-bottom: 56px;
-      }
-      .sol-card {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 36px 30px;
-        background: #fff;
-      }
-      .sol-card .idx {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 34px;
-        height: 34px;
-        border-radius: 9px;
-        background: var(--navy);
-        color: #fff;
-        font-size: 13px;
-        font-weight: 800;
-        margin-bottom: 22px;
-      }
-      .sol-card h3 {
-        font-size: 18px;
-        font-weight: 800;
-        color: var(--navy);
-        margin: 0 0 10px;
-        letter-spacing: -0.025em;
-      }
-      .sol-card p {
-        font-size: 14.5px;
-        color: var(--ink-2);
-        margin: 0;
-      }
-      .flow {
-        border: 1px dashed #c6d9e8;
-        border-radius: 18px;
-        background: #fff;
-        padding: 34px 30px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 10px 14px;
-      }
-      .flow-label {
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        color: var(--ink-3);
-        width: 100%;
-        text-align: center;
-        margin-bottom: 12px;
-      }
-      .flow-step {
-        padding: 13px 22px;
-        border-radius: 10px;
-        background: #f3f8fc;
-        border: 1px solid #dceaf4;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--navy);
-      }
-      /* 설비 구성 사진 + 장비 명칭 콜아웃 */
-      .lineup-fig {
-        margin: 0;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 26px 22px 20px;
-        box-shadow: 0 8px 24px rgba(15, 40, 78, 0.04);
-      }
-      .lf-stage {
-        position: relative;
-        container-type: inline-size;
-        max-width: 1080px;
-        margin: 0 auto;
-      }
-      .lf-stage img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-      .lf {
-        position: absolute;
-        left: var(--x);
-        bottom: 17.2%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 0.45em;
-        padding: 0.4em 0.75em 0.42em;
-        background: #fff;
-        border: 1px solid #d8e3ec;
-        border-radius: 999px;
-        box-shadow: 0 6px 16px -8px rgba(15, 40, 78, 0.55);
-        white-space: nowrap;
-        font-size: clamp(9px, 1.28cqw, 13.5px);
-        line-height: 1.25;
-        z-index: 2;
-      }
-      .lf::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 100%;
-        width: 1px;
-        height: 1.15em;
-        background: rgba(15, 40, 78, 0.28);
-      }
-      .lf::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: calc(100% + 1.15em);
-        transform: translateX(-50%);
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: var(--brand-l);
-        box-shadow: 0 0 0 2px rgba(18, 135, 196, 0.18);
-      }
-      .lf-num {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 auto;
-        width: 1.55em;
-        height: 1.55em;
-        border-radius: 50%;
-        background: var(--navy);
-        color: #fff;
-        font-size: 0.82em;
-        font-weight: 800;
-        letter-spacing: 0;
-      }
-      .lf-name {
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: var(--navy);
-      }
-      .lf-key {
-        display: none;
-        flex-wrap: wrap;
-        gap: 6px 10px;
-        justify-content: center;
-        margin: 18px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-      .lf-key li {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--ink-2);
-        letter-spacing: -0.015em;
-      }
-      .lf-key .lf-num {
-        font-size: 10px;
-        width: 16px;
-        height: 16px;
-      }
-      .flow-step.on {
-        background: var(--brand);
-        border-color: var(--brand);
-        color: #fff;
-      }
-      .flow-arrow {
-        color: #b4c8da;
-        display: flex;
-        align-items: center;
-      }
-      .flow-arrow svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      /* ============ 회사소개 ============ */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 64px;
-        align-items: start;
-      }
-      .about-grid p {
-        font-size: 16px;
-        line-height: 1.85;
-        color: var(--ink-2);
-        margin: 0 0 18px;
-      }
-      .about-grid p strong {
-        color: var(--navy);
-        font-weight: 700;
-      }
-      .timeline {
-        border-left: 2px solid #dce7f1;
-        padding-left: 28px;
-        margin: 0;
-        list-style: none;
-      }
-      .timeline li {
-        position: relative;
-        padding-bottom: 30px;
-      }
-      .timeline li:last-child {
-        padding-bottom: 0;
-      }
-      .timeline li::before {
-        content: '';
-        position: absolute;
-        left: -35px;
-        top: 8px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #fff;
-        border: 3px solid var(--brand);
-      }
-      .timeline .yr {
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        color: var(--brand);
-        margin-bottom: 4px;
-      }
-      .timeline .tx {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 0;
-      }
-      .timeline .sb {
-        font-size: 13.5px;
-        color: var(--ink-3);
-        margin: 4px 0 0;
-        line-height: 1.6;
-      }
-
-      /* ============ 기술지원 ============ */
-      .sup-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .sup-card {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 34px 30px;
-        background: #fff;
-        transition:
-          border-color 0.2s ease,
-          transform 0.2s ease;
-      }
-      .sup-card:hover {
-        border-color: #c6d9e8;
-        transform: translateY(-4px);
-      }
-      .sup-card h3 {
-        font-size: 17.5px;
-        font-weight: 800;
-        color: var(--navy);
-        margin: 0 0 10px;
-        letter-spacing: -0.025em;
-      }
-      .sup-card p {
-        font-size: 14.5px;
-        color: var(--ink-2);
-        margin: 0 0 16px;
-      }
-      .sup-card ul {
-        margin: 0;
-        padding-left: 18px;
-        font-size: 14px;
-        color: var(--ink-2);
-        line-height: 1.8;
-      }
-      .sup-card ul li {
-        margin: 0;
-      }
-
-      /* ============ 문의 ============ */
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: start;
-      }
-      .branch-tabs {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 22px;
-        background: #eaf1f7;
-        padding: 5px;
-        border-radius: 12px;
-      }
-      .branch-tab {
-        flex: 1;
-        padding: 10px 14px;
-        border: 0;
-        border-radius: 8px;
-        background: transparent;
-        color: var(--ink-2);
-        font-family: inherit;
-        font-size: 14.5px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
-      }
-      .branch-tab.active {
-        background: #fff;
-        color: var(--navy);
-        box-shadow: 0 2px 8px rgba(15, 40, 78, 0.08);
-      }
-      .branch-card {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 28px 24px;
-        box-shadow: 0 4px 16px rgba(15, 40, 78, 0.03);
-      }
-      .branch-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 18px;
-        padding-bottom: 14px;
-        border-bottom: 1px solid var(--line);
-      }
-      .branch-header h3 {
-        margin: 0;
-        font-size: 18px;
-        font-weight: 800;
-        color: var(--navy);
-      }
-      .branch-badge {
-        font-size: 11.5px;
-        font-weight: 700;
-        padding: 3px 9px;
-        border-radius: 6px;
-        background: #edf6fb;
-        color: var(--brand);
-      }
-      .info-item {
-        display: flex;
-        gap: 16px;
-        padding: 20px 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .info-item:first-of-type {
-        padding-top: 0;
-      }
-      .info-ico {
-        flex: none;
-        width: 42px;
-        height: 42px;
-        border-radius: 11px;
-        background: #edf5fa;
-        color: var(--brand);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .info-ico svg {
-        width: 20px;
-        height: 20px;
-      }
-      .info-item dt {
-        font-size: 11.5px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        color: var(--ink-3);
-        margin: 0 0 4px;
-      }
-      .info-item dd {
-        margin: 0;
-        font-size: 15px;
-        color: var(--navy);
-        font-weight: 600;
-        line-height: 1.65;
-      }
-      .info-item dd a {
-        color: var(--brand);
-        text-decoration: none;
-      }
-      .map-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 18px;
-        text-decoration: none;
-        background: #4285F4;
-        color: #fff;
-        font-size: 13.5px;
-        font-weight: 700;
-        padding: 10px 18px;
-        border-radius: 9px;
-        transition: background 0.18s ease, transform 0.18s ease;
-      }
-      .map-link:hover {
-        background: #2b6fe4;
-        transform: translateY(-1px);
-      }
-      .map-link.naver {
-        background: #03c75a;
-      }
-      .map-link.naver:hover {
-        background: #02b350;
-      }
-      .map-btn-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .form-card {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 38px 34px;
-        background: #fff;
-      }
-      .form-card h3 {
-        font-size: 19px;
-        font-weight: 800;
-        color: var(--navy);
-        margin: 0 0 6px;
-        letter-spacing: -0.025em;
-      }
-      .form-card .hint {
-        font-size: 13.5px;
-        color: var(--ink-3);
-        margin: 0 0 28px;
-      }
-      .f-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 16px;
-      }
-      .f-field {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-      }
-      .f-field.full {
-        grid-column: 1 / -1;
-      }
-      .f-field label {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--ink-2);
-      }
-      .f-field label span {
-        color: var(--brand);
-      }
-      .f-field input,
-      .f-field select,
-      .f-field textarea {
-        font-family: inherit;
-        font-size: 14.5px;
-        color: var(--ink);
-        border: 1px solid var(--line);
-        border-radius: 9px;
-        padding: 12px 14px;
-        background: #fff;
-        width: 100%;
-        outline: none;
-        transition: border-color 0.16s ease;
-      }
-      .f-field input:focus,
-      .f-field select:focus,
-      .f-field textarea:focus {
-        border-color: var(--brand);
-      }
-      .f-field textarea {
-        resize: vertical;
-        min-height: 110px;
-        line-height: 1.65;
-      }
-      .agree {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        font-size: 13px;
-        color: var(--ink-3);
-        margin: 6px 0 22px;
-      }
-      .agree input {
-        margin-top: 3px;
-      }
-      .form-submit {
-        width: 100%;
-        font-family: inherit;
-        font-size: 15.5px;
-        font-weight: 800;
-        color: #fff;
-        background: var(--brand);
-        border: 0;
-        border-radius: 10px;
-        padding: 16px;
-        cursor: pointer;
-        transition: background 0.18s ease;
-      }
-      .form-submit:hover {
-        background: var(--navy);
-      }
-
-      /* ============ FOOTER ============ */
-      .footer {
-        background: var(--navy);
-        color: rgba(255, 255, 255, 0.7);
-        padding: 64px 0 34px;
-        font-size: 14px;
-      }
-      .foot-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        gap: 40px;
-        padding-bottom: 44px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-      }
-      .foot-brand .fk {
-        font-size: 20px;
-        font-weight: 800;
-        color: #fff;
-        letter-spacing: -0.03em;
-        margin: 0 0 14px;
-      }
-      .foot-brand p {
-        margin: 0 0 6px;
-        font-size: 13.5px;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.62);
-      }
-      .foot-col h4 {
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        color: #8fd3f4;
-        margin: 0 0 16px;
-      }
-      .foot-col a {
-        display: block;
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 13.5px;
-        padding: 6px 0;
-      }
-      .foot-col a:hover {
-        color: #fff;
-      }
-      .foot-bottom {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 28px;
-        justify-content: space-between;
-        padding-top: 26px;
-        font-size: 12.5px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-      /* ============ 반응형 ============ */
-      @media (max-width: 1080px) {
+      @media (max-width: 1079px) {
         .gnb-nav {
           display: none;
         }
-        .allmenu-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .p-grid,
-        .sol-grid,
-        .sup-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .about-grid,
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 46px;
-        }
-        .foot-grid {
-          grid-template-columns: 1fr 1fr;
-        }
       }
+
       @media (max-width: 760px) {
         .container {
           padding: 0 18px;
@@ -1909,77 +1357,54 @@
 
       <div class="allmenu-foot">
         <span><strong>대표전화</strong> 070-8271-9880</span>
-        <span><strong>이메일</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f06143f0614521c10511c1012">[email&#160;protected]</a></span>
+        <span><strong>이메일</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="384153784153155b57165b5755">[email&#160;protected]</a></span>
         <span><strong>주소</strong> 경기도 용인시 기흥구 동백8로 131번길 35</span>
         <a href="#contact">도입 상담 바로가기 →</a>
       </div>
     </div>
 
     <main id="top">
-      <!-- ================= HERO (동영상 영역) ================= -->
+      <!-- ================= HERO (풀 라인업 이미지) ================= -->
       <section class="hero">
-        <div class="hero-media">
-          <!-- ============================================================
-           ▼▼▼  동영상 교체 위치  ▼▼▼
-           아래 <source> 주석을 풀고 src에 mp4 경로를 넣으면
-           자동재생 · 반복 · 무음으로 히어로 배경 영상이 재생됩니다.
-           (예: <source src="video/yk-hero.mp4" type="video/mp4">)
-           영상이 없을 때는 poster 이미지가 대신 표시됩니다.
-           ============================================================ -->
-          <video
-            class="hero-video"
-            id="heroVideo"
-            autoplay
-            muted
-            loop
-            playsinline
-            webkit-playsinline
-            poster="https://sspark.genspark.ai/i/7Z4vSTm2idHfzs2U?width=1024"
-          >
-            <!-- <source src="video/yk-hero.mp4" type="video/mp4" /> -->
-          </video>
-
-          <div class="hero-shade"></div>
-        </div>
-
         <div class="hero-inner">
-          <div class="container" style="max-width: 680px; margin-left: 0;">
-            <p class="hero-eyebrow">SINCE 1991 · YAMAHA SMT OFFICIAL PARTNER</p>
-            <h1>스마트 제조 혁신을 이끄는<br /><em>글로벌 SMT 토탈 솔루션 파트너</em></h1>
-            <p class="hero-sub">
-              마운터부터 스크린 프린터, 3D AOI 검사기, 하이브리드 마운터, SMD 스마트 스토리지까지. YK코퍼레이션은 YAMAHA의
-              고품질 SMT 설비로 라인 전체를 설계하고, 설치·유지보수까지 한 창구에서 책임집니다.
-            </p>
-            <div class="hero-cta">
-              <a class="btn btn-primary" href="#contact">
-                도입 상담 신청
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <a class="btn btn-ghost" href="#products">제품 라인업 보기</a>
+          <div class="container">
+            <div class="hero-grid">
+              <div class="hero-copy">
+                <p class="hero-eyebrow">SINCE 1991 · YAMAHA SMT OFFICIAL PARTNER</p>
+                <h1>스마트 제조 혁신을 이끄는<br /><em>글로벌 SMT 토탈 솔루션 파트너</em></h1>
+                <p class="hero-sub">
+                  마운터부터 스크린 프린터, 3D AOI 검사기, 하이브리드 마운터, SMD 스마트 스토리지까지. YK코퍼레이션은
+                  YAMAHA의 고품질 SMT 설비로 라인 전체를 설계하고, 설치·유지보수까지 한 창구에서 책임집니다.
+                </p>
+                <div class="hero-cta">
+                  <a class="btn btn-primary" href="#contact">
+                    도입 상담 신청
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                  <a class="btn btn-ghost" href="#products">제품 라인업 보기</a>
+                </div>
+              </div>
+
+              <figure class="hero-visual">
+                <img
+                  src="https://sspark.genspark.ai/i/7Z4vSTm2idHfzs2U?width=1600"
+                  alt="YAMAHA SMT 풀 라인업 — 스크린 프린터, 마운터, 디스펜서, 3D AOI 검사기"
+                  width="1000"
+                  height="510"
+                />
+                <figcaption>YAMAHA SMT · 1 Stop Smart Solution 전체 라인업</figcaption>
+              </figure>
             </div>
           </div>
-        </div>
-
-        <button class="video-toggle" id="videoToggle" aria-label="배경 영상 재생 및 일시정지">
-          <svg id="videoIcon" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="6" y="5" width="4" height="14" rx="1" />
-            <rect x="14" y="5" width="4" height="14" rx="1" />
-          </svg>
-          <span id="videoToggleText">영상 일시정지</span>
-        </button>
-
-        <div class="video-note">
-          <b>영상 교체 안내</b> — 소스의 <code>&lt;video&gt;</code> 안에 <code>&lt;source src="동영상.mp4"&gt;</code> 한
-          줄만 넣으면 바로 적용됩니다.
         </div>
       </section>
 
@@ -2305,7 +1730,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="/cdn-cgi/l/email-protection#691002291002440a06470a0604"><span class="__cf_email__" data-cfemail="d0a9bb90a9bbfdb3bffeb3bfbd">[email&#160;protected]</span></a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#aed7c5eed7c583cdc180cdc1c3"><span class="__cf_email__" data-cfemail="b7cedcf7cedc9ad4d899d4d8da">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2387,7 +1812,7 @@
                         </div>
                         <div>
                           <dt>E-MAIL</dt>
-                          <dd><a href="/cdn-cgi/l/email-protection#3202050305585a5e575772555f535b5e1c515d5f"><span class="__cf_email__" data-cfemail="b9898e888ed3d1d5dcdcf9ded4d8d0d597dad6d4">[email&#160;protected]</span></a></dd>
+                          <dd><a href="/cdn-cgi/l/email-protection#97a7a0a6a0fdfffbf2f2d7f0faf6fefbb9f4f8fa"><span class="__cf_email__" data-cfemail="07373036306d6f6b626247606a666e6b2964686a">[email&#160;protected]</span></a></dd>
                         </div>
                       </div>
                     </dl>
@@ -2476,7 +1901,7 @@
                   <span>개인정보 수집 및 이용에 동의합니다. (문의 응대 목적으로만 사용됩니다)</span>
                 </label>
 
-                <button class="form-submit" type="submit"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd5c7ecd5c781cfc382cfc3c1">[email&#160;protected]</a>으로 문의 보내기</button>
+                <button class="form-submit" type="submit"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0a9bb90a9bbfdb3bffeb3bfbd">[email&#160;protected]</a>으로 문의 보내기</button>
               </form>
             </div>
           </div>
@@ -2492,8 +1917,8 @@
             <a href="#top" style="display:inline-block; margin-bottom:18px; text-decoration:none; background:#ffffff; padding:10px 18px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.18);">
               <img src="https://www.genspark.ai/api/files/s/7puBtEmH?token=awYlAAJrh6CMA2eKfdl6gg" alt="YK CORPORATION" style="height:64px; width:auto; display:block;" />
             </a>
-            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8af3e1caf3e1a7e9e5a4e9e5e7">[email&#160;protected]</a></p>
-            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9999e989ec3c1c5cccce9cec4c8c0c587cac6c4">[email&#160;protected]</a></p>
+            <p><strong>[본사]</strong> 경기도 용인시 기흥구 동백8로 131번길 35 (우 16999)<br />TEL 070-8271-9880 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed9486ad9486c08e82c38e8280">[email&#160;protected]</a></p>
+            <p style="margin-top:8px;"><strong>[베트남 지사]</strong> Tầng 2, Số 20 Đặng Thai Mai, Phường Ninh Xá, Bắc Ninh, Việt Nam<br />Mobile +82.10.3821.0858 / +84.378.403.348 · E-MAIL <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94a4a3a5a3fefcf8f1f1d4f3f9f5fdf8baf7fbf9">[email&#160;protected]</a></p>
           </div>
 
           <div class="foot-col">
@@ -2563,31 +1988,6 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           closeMenu();
-        }
-      });
-
-      /* ---------- 히어로 배경 영상 재생 / 일시정지 ---------- */
-      var heroVideo = document.getElementById('heroVideo');
-      var videoToggle = document.getElementById('videoToggle');
-      var videoToggleText = document.getElementById('videoToggleText');
-      var videoIcon = document.getElementById('videoIcon');
-
-      var ICON_PAUSE =
-        '<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>';
-      var ICON_PLAY = '<path d="M8 5.5v13l11-6.5z"/>';
-
-      videoToggle.addEventListener('click', function () {
-        if (heroVideo.paused) {
-          var p = heroVideo.play();
-          if (p && p.catch) {
-            p.catch(function () {});
-          }
-          videoToggleText.textContent = '영상 일시정지';
-          videoIcon.innerHTML = ICON_PAUSE;
-        } else {
-          heroVideo.pause();
-          videoToggleText.textContent = '영상 재생';
-          videoIcon.innerHTML = ICON_PLAY;
         }
       });
 
